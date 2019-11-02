@@ -1,0 +1,76 @@
+body {
+    background-color: rgba(1,16,75,1);
+    background: url(topbanner.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+#hexagonlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 216px;
+    height: 34.848px;
+}
+#Hexagon_logo_Don_Diablo_vector {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 68px;
+    height: 80px;    
+}
+#register_block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -40px;
+    width: 809px;
+    height: 420px;
+    overflow: visible;
+    background-color: rgba(255,255,255,0);
+}
+#fields {
+    padding-top: 60px;
+}
+.field {    
+    width: 50%;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 10px;
+    overflow: visible;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px; 
+    border: white;
+}
+#service_agreement {
+    margin-left: 25%;
+    font-family: Segoe UI;
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+}
+#login {
+    font-family: Segoe UI;
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    text-align: center;
+    padding-top: 20px;
+}
+#register_button {
+    display: block;
+    margin-top: 40px;  
+    margin-left: auto;
+    margin-right: auto;
+    width: 143px;
+    text-align: center;    
+    font-family: Segoe UI;
+    font-size: 20px;
+    padding: 21px;
+    color: rgba(255,255,255,1);
+    border-style: solid;
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Login web</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: Login web;
+		--web-view-id: Login_web;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: Login_web;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Login_web {
+		position: absolute;
+		box-sizing: border-box;
+		background: #E5E5E5;
+		width: 100%;
+		height: 1080px;
+		background-color: rgba(0,0,0,0.1);
+		overflow: hidden;
+		--web-view-name: Login web;
+		--web-view-id: Login_web;
+		--web-enable-deep-linking: true;
+	}
+	.Background_picture {
+		position: center;
+		overflow: visible;
+		width: 100%;
+		height: 100%;
+		left: -1px;
+		top: 50px;
+	}
+	#Banner {
+		position: center;
+		width: 100%;
+		height: 50px;
+		overflow: visible;
+	}
+	.Rectangle_1 {
+		position: center;
+		overflow: visible;
+		width: 1920px;
+		height: 50px;
+		top: 0px;
+		opacity: 0.1;
+	}
+	#Elipses {
+		position: absolute;
+		width: 388px;
+		height: 45px;
+		left: 50%;
+		top: 2px;
+		overflow: visible;
+	}
+	.Ellipse_1 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 196px;
+		top: 0px;
+	}
+	.Ellipse_2 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 147px;
+		top: 0px;
+	}
+	.Ellipse_3 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 343px;
+		top: 0px;
+	}
+	.Ellipse_4 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 98px;
+		top: 0px;
+	}
+	.Ellipse_5 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 294px;
+		top: 0px;
+	}
+	.Ellipse_6 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 245px;
+		top: 0px;
+	}
+	.Ellipse_7 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 49px;
+		top: 0px;
+	}
+	.Ellipse_8 {
+		position: absolute;
+		overflow: visible;
+		width: 45px;
+		height: 45px;
+		left: 0px;
+		top: 0px;
+	}
+	.logo {
+		position: absolute;
+		overflow: visible;
+		width: 216px;
+		height: 120px;
+		left: 852px;
+		top: 50px;
+	}
+	#Login_button {
+		position: absolute;
+		width: 143px;
+		height: 61px;
+		left: 889px;
+		top: 756px;
+		overflow: visible;
+	}
+	.Rectangle_3 {
+		position: absolute;
+		overflow: visible;
+		width: 143px;
+		height: 61px;
+		left: 0px;
+		top: 0px;
+	}
+	#Login {
+		position: absolute;
+		left: 47px;
+		top: 17px;
+		overflow: visible;
+		width: 50px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+	#Group_4 {
+		position: absolute;
+		width: 809px;
+		height: 460px;
+		left: 558px;
+		top: 209px;
+		overflow: visible;
+	}
+	.Rectangle_2 {
+		position: absolute;
+		overflow: visible;
+		width: 809px;
+		height: 420px;
+		left: 0px;
+		top: 40px;
+	}
+	#Register {
+		position: absolute;
+		left: 545px;
+		top: 334px;
+		overflow: visible;
+		width: 47px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 13px;
+		color: rgba(255,255,255,1);
+		text-decoration: true;
+	}
+	#Forgot_password_ {
+		position: absolute;
+		left: 489px;
+		top: 305px;
+		overflow: visible;
+		width: 103px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 13px;
+		color: rgba(255,255,255,1);
+		text-decoration: true;
+	}
+	#Password {
+		position: absolute;
+		width: 377px;
+		height: 53px;
+		left: 214px;
+		top: 240px;
+		overflow: visible;
+	}
+	.Rectangle_5 {
+		position: absolute;
+		overflow: visible;
+		width: 377px;
+		height: 53px;
+		left: 0px;
+		top: 0px;
+	}
+	#Password_A0_Text_4 {
+		opacity: 0.25;
+		position: absolute;
+		left: 16px;
+		top: 13px;
+		overflow: visible;
+		width: 84px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(0,0,0,0.1);
+	}
+	#Username {
+		position: absolute;
+		width: 377px;
+		height: 53px;
+		left: 214px;
+		top: 168px;
+		overflow: visible;
+	}
+	.Rectangle_4 {
+		position: absolute;
+		overflow: visible;
+		width: 377px;
+		height: 53px;
+		left: 0px;
+		top: 0px;
+	}
+	#Username_A0_Text_5 {
+		opacity: 0.25;
+		position: absolute;
+		left: 16px;
+		top: 13px;
+		overflow: visible;
+		width: 90px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+	}
+	.Hexagon_logo_Don_Diablo_vector {
+		position: absolute;
+		overflow: visible;
+		width: 270px;
+		left: 280px;
+		top: -10px;
+	}
+</style>
+</head>
+<body>
+<div id="Login_web" class="">
+	<svg class="Background_picture">
+		<pattern elementId="Background_picture_A0_Rectangle_2" id="Background_picture_A0_Rectangle_2_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" href="Hexagon_logo_Don_Diablo_vector_A0_Rectangle_11_pattern.jpg" xlink:href="Hexagon_logo_Don_Diablo_vector_A0_Rectangle_11_pattern.jpg" width="1920px"></image>
+		</pattern>
+		<rect fill="url(#Background_picture_A0_Rectangle_2_pattern)" id="Background_picture" rx="0" ry="0" x="0" y="0" width="100%">
+		</rect>
+	</svg>
+	<div id="Banner">
+		<svg class="Rectangle_1">
+			<rect fill="rgba(0,0,0,0.1)" id="Rectangle_1" rx="0" ry="0" x="0" y="0" width="100%" height="50">
+			</rect>
+		</svg>
+		<div id="Elipses">
+			<svg class="Ellipse_1">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_1" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_2">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_2" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_3">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_3" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_4">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_4" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_5">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_5" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_6">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_6" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_7">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_7" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+			<svg class="Ellipse_8">
+				<ellipse fill="rgba(255,255,255,1)" id="Ellipse_8" rx="22.5" ry="22.5" cx="22.5" cy="22.5">
+				</ellipse>
+			</svg>
+		</div>
+	</div>
+	<svg class="logo">
+		<pattern elementId="logo_A0_Rectangle_5" id="logo_A0_Rectangle_5_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="Hexagon NoFill.svg" xlink:href="Hexagon NoFill.svg"></image>
+		</pattern>
+		<rect fill="url(#logo_A0_Rectangle_5_pattern)" id="logo" rx="0" ry="0" x="0" y="0" width="216" height="120">
+		</rect>
+	</svg>
+	<div id="Login_button" >
+		<a href="http://google.com" target="blank"><svg class="Rectangle_3">
+			<rect fill="transparent" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_3" rx="0" ry="0" x="0" y="0" width="143" height="61">
+			</rect>
+		</svg></a>
+		<div id="Login">
+			<span>Login</span>
+		</div>
+	</div>
+	<div id="Group_4">
+		<svg class="Rectangle_2">
+			<rect fill="rgba(255,255,255,0.749)" id="Rectangle_2" rx="0" ry="0" x="0" y="0" width="809" height="420">
+			</rect>
+		</svg>
+		<div id="Register">
+			<span>Register</span>
+		</div>
+		<div id="Forgot_password_">
+			<span>Forgot password?</span>
+		</div>
+		<div id="Password">
+			<svg class="Rectangle_5">
+				<rect fill="rgba(255,255,255,1)" id="Rectangle_5" rx="0" ry="0" x="0" y="0" width="377" height="53">
+				</rect>
+			</svg>
+			<div id="Password_A0_Text_4">
+				<span>Password</span>
+			</div>
+		</div>
+		<div id="Username">
+			<svg class="Rectangle_4">
+				<rect fill="rgba(255,255,255,1)" id="Rectangle_4" rx="0" ry="0" x="0" y="0" width="377" height="53">
+				</rect>
+			</svg>
+			<div id="Username_A0_Text_5">
+				<span>Username</span>
+			</div>
+		</div>
+		<svg class="Hexagon_logo_Don_Diablo_vector">
+			<pattern elementId="Hexagon_logo_Don_Diablo_vector_A0_Rectangle_11" id="Hexagon_logo_Don_Diablo_vector_A0_Rectangle_11_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="Hexagon logo Don Diablo vector FillWhite.svg" xlink:href="Hexagon logo Don Diablo vector FillWhite.svg"></image>
+			</pattern>
+			<rect fill="url(#Hexagon_logo_Don_Diablo_vector_A0_Rectangle_11_pattern)" id="Hexagon_logo_Don_Diablo_vector" rx="0" ry="0" x="0" y="0" width="100%" height="100%">
+			</rect>
+		</svg>
+	</div>
+</div>
+</body>
+</html>
