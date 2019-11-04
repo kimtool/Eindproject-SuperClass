@@ -1,6 +1,6 @@
 body {
     background-color: rgba(1,16,75,1);
-    background: url(topbanner.jpg) no-repeat center center fixed;
+    background: url('../images/afbeeldingen/topbanner.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 #hexagonlogo {
