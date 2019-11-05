@@ -8,34 +8,31 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25px;
-    width: 216px;
-    height: 34.848px;
+    margin-top: 10px;
+    width: 114px;
 }
 #Hexagon_logo_Don_Diablo_vector {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
-    width: 68px;
-    height: 80px;    
+    margin-top: 25px;
+    width: 48px;   
 }
 #register_block {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -40px;
-    width: 400px;
-    height: 420px;
+    width: 290px;
+    height: 300px;
     overflow: visible;
     background-color: rgba(255,255,255,0);
 }
 #fields {
-    padding-top: 60px;
+    padding-top: 30px;
 }
-.field {    
-    width: 400px;
-    height: 30px;
+.field {
+    width: 270px;
+    height: 15px;
     margin-top: 15px;
     padding: 10px;
     overflow: visible;
@@ -43,46 +40,99 @@ body {
     text-align: left;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px; 
+    font-size: 15px; 
     border: white;
 }
 #reset{
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
-    margin-top: 80px;
     color: rgba(255,255,255,1);
 }
 #send-email{
-    font-size: 18px;
+    font-size: 13px;
     text-align: center;
     color: rgba(255,255,255,1);
 }
 #service_agreement {
-    font-size: 16px;
+    font-size: 13px;
     color: rgba(255,255,255,1);
 }
 #login {
-    font-size: 16px;
+    font-size: 13px;
     color: rgba(255,255,255,1);
     text-align: center;
     padding-top: 20px;
 }
+#login_padding{
+    padding-top: 50px;
+}
 #register {
-    font-size: 16px;
+    font-size: 13px;
     color: rgba(255,255,255,1);
     text-align: right;
     padding-top: 20px;
 }
 .button {
-    display: block;
-    margin-top: 40px;  
+    display: block; 
     margin-left: auto;
     margin-right: auto;
-    width: 143px;
-    height: 61px;
+    width: 136px;
+    height: 58px;
     text-align: center; 
-    padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 17px;
     color: rgba(255,255,255,1);
     border-style: solid;
+}
+
+
+@media (min-width: 410px){
+    #hexagonlogo {        
+        margin-top: 25px;
+        width: 216px;
+    }
+    #Hexagon_logo_Don_Diablo_vector {        
+        margin-top: 80px;
+        width: 68px;   
+    }
+    #register_block {
+        margin-top: -40px;
+        width: 400px;
+        height: 420px;
+    }
+    #fields {
+        padding-top: 60px;
+    }
+    .field {    
+        width: 380px;
+        height: 26px;
+        margin-top: 15px;
+        padding: 10px;
+        font-size: 20px;
+    }
+    #reset{
+        font-size: 30px;
+    }
+    #send-email{
+        font-size: 18px;
+    }
+    #service_agreement {
+        font-size: 16px;
+    }
+    #login {
+        font-size: 16px;
+        padding-top: 20px;
+    }
+    #login_padding{
+        padding-top: 61px;
+    }
+    #register {
+        font-size: 16px;
+        padding-top: 20px;
+    }
+    .button {
+        width: 143px;
+        height: 61px;
+        padding-bottom: 5px;
+        font-size: 20px;
+    }
 }
