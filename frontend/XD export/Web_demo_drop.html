@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Web demo drop</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: Web demo drop;
+		--web-view-id: Web_demo_drop;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: Web_demo_drop;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#Web_demo_drop {
+		position: absolute;
+		box-sizing: border-box;
+		background: #E5E5E5;
+		width: 1920px;
+		height: 1080px;
+		background-color: rgba(0,0,0,1);
+		overflow: hidden;
+		--web-view-name: Web demo drop;
+		--web-view-id: Web_demo_drop;
+		--web-enable-deep-linking: true;
+	}
+	#Group_16 {
+		opacity: 0.5;
+		position: absolute;
+		width: 1920px;
+		height: 1104px;
+		left: 0px;
+		top: -12px;
+		overflow: visible;
+	}
+	.topbanner {
+		position: absolute;
+		overflow: visible;
+		width: 1920px;
+		height: 1104px;
+		left: 0px;
+		top: 0px;
+	}
+	.hexagonlogo {
+		position: absolute;
+		overflow: visible;
+		width: 216px;
+		height: 34.848px;
+		left: 852px;
+		top: 87px;
+	}
+	#MY_PROFILE {
+		opacity: 0.6;
+		position: absolute;
+		left: 410px;
+		top: 91px;
+		overflow: visible;
+		width: 108px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+	#MY_DEMO_S {
+		opacity: 0.6;
+		position: absolute;
+		left: 1178px;
+		top: 91px;
+		overflow: visible;
+		width: 108px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+	#DEMO_DROP {
+		position: absolute;
+		left: 627px;
+		top: 91px;
+		overflow: visible;
+		width: 116px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+	#NOTIFICATIONS {
+		opacity: 0.6;
+		position: absolute;
+		left: 1395px;
+		top: 91px;
+		overflow: visible;
+		width: 141px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+	#Group_37 {
+		position: absolute;
+		width: 496px;
+		height: 53px;
+		left: 712px;
+		top: 352px;
+		overflow: visible;
+	}
+	.Rectangle_28 {
+		position: absolute;
+		overflow: visible;
+		width: 496px;
+		height: 53px;
+		left: 0px;
+		top: 0px;
+	}
+	.Rectangle_29 {
+		position: absolute;
+		overflow: visible;
+		width: 51px;
+		height: 53px;
+		left: 445px;
+		top: 0px;
+	}
+	#___ {
+		position: absolute;
+		left: 461px;
+		top: 3px;
+		overflow: visible;
+		width: 21px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 30px;
+		color: rgba(112,112,112,1);
+	}
+	#Group_38 {
+		position: absolute;
+		width: 496px;
+		height: 298px;
+		left: 712px;
+		top: 474px;
+		overflow: visible;
+	}
+	.Rectangle_30 {
+		position: absolute;
+		overflow: visible;
+		width: 496px;
+		height: 298px;
+		left: 0px;
+		top: 0px;
+	}
+	#There_are_many_variations_of_p {
+		position: absolute;
+		left: 14px;
+		top: 8px;
+		overflow: hidden;
+		width: 469px;
+		height: 186px;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(112,112,112,1);
+	}
+	#TELL_US_SOMETHING_ABOUT_YOUR_D {
+		position: absolute;
+		left: 553px;
+		top: 423px;
+		overflow: visible;
+		width: 470px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		color: rgba(255,255,255,1);
+	}
+	#SELECT_FILE {
+		position: absolute;
+		left: 553px;
+		top: 362px;
+		overflow: visible;
+		width: 130px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 25px;
+		color: rgba(255,255,255,1);
+	}
+	#Login_button {
+		position: absolute;
+		width: 143px;
+		height: 61px;
+		left: 889px;
+		top: 830px;
+		overflow: visible;
+	}
+	.Rectangle_3 {
+		position: absolute;
+		overflow: visible;
+		width: 143px;
+		height: 61px;
+		left: 0px;
+		top: 0px;
+	}
+	#SEND {
+		position: absolute;
+		left: 46px;
+		top: 17px;
+		overflow: visible;
+		width: 51px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Segoe UI;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+</style>
+</head>
+<body>
+<div id="Web_demo_drop" class="">
+	<div id="Group_16">
+		<svg class="topbanner">
+			<pattern elementId="topbanner_A13_Rectangle_2" id="topbanner_A13_Rectangle_2_pattern" x="0" y="0" width="100%" height="100%">
+				<image x="0" y="0" width="100%" height="100%" href="topbanner_A13_Rectangle_2_pattern.png" xlink:href="topbanner_A13_Rectangle_2_pattern.png"></image>
+			</pattern>
+			<rect fill="url(#topbanner_A13_Rectangle_2_pattern)" id="topbanner" rx="0" ry="0" x="0" y="0" width="1920" height="1104">
+			</rect>
+		</svg>
+	</div>
+	<svg class="hexagonlogo">
+		<pattern elementId="hexagonlogo_A13_Rectangle_4" id="hexagonlogo_A13_Rectangle_4_pattern" x="0" y="0" width="100%" height="100%">
+			<image x="0" y="0" width="100%" height="100%" href="hexagonlogo_A13_Rectangle_4_pattern.png" xlink:href="hexagonlogo_A13_Rectangle_4_pattern.png"></image>
+		</pattern>
+		<rect fill="url(#hexagonlogo_A13_Rectangle_4_pattern)" id="hexagonlogo" rx="0" ry="0" x="0" y="0" width="216" height="34.848">
+		</rect>
+	</svg>
+	<div id="MY_PROFILE">
+		<span>MY PROFILE</span>
+	</div>
+	<div id="MY_DEMO_S">
+		<span>MY DEMO'S</span>
+	</div>
+	<div id="DEMO_DROP">
+		<span>DEMO DROP</span>
+	</div>
+	<div id="NOTIFICATIONS">
+		<span>NOTIFICATIONS</span>
+	</div>
+	<div id="Group_37">
+		<svg class="Rectangle_28">
+			<rect fill="rgba(255,255,255,1)" id="Rectangle_28" rx="0" ry="0" x="0" y="0" width="496" height="53">
+			</rect>
+		</svg>
+		<svg class="Rectangle_29">
+			<rect fill="rgba(165,165,165,1)" stroke="rgba(112,112,112,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_29" rx="0" ry="0" x="0" y="0" width="51" height="53">
+			</rect>
+		</svg>
+		<div id="___">
+			<span>...</span>
+		</div>
+	</div>
+	<div id="Group_38">
+		<svg class="Rectangle_30">
+			<rect fill="rgba(255,255,255,1)" id="Rectangle_30" rx="0" ry="0" x="0" y="0" width="496" height="298">
+			</rect>
+		</svg>
+		<div id="There_are_many_variations_of_p">
+			<span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,<br/> by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum.</span>
+		</div>
+	</div>
+	<div id="TELL_US_SOMETHING_ABOUT_YOUR_D">
+		<span>TELL US SOMETHING ABOUT YOUR DEMO</span>
+	</div>
+	<div id="SELECT_FILE">
+		<span>SELECT FILE</span>
+	</div>
+	<div id="Login_button">
+		<svg class="Rectangle_3">
+			<rect fill="transparent" stroke="rgba(255,255,255,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_3" rx="0" ry="0" x="0" y="0" width="143" height="61">
+			</rect>
+		</svg>
+		<div id="SEND">
+			<span>SEND</span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

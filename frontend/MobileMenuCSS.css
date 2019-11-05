@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body {
+    background-color: black;
+    background: url('../images/afbeeldingen/topbanner50.jpg') no-repeat center center fixed;    
+    background-size: cover;
+    font-family: europa, Segoe UI;
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+}
+#hexagonlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 114px;
+}
+#Hexagon_logo_Don_Diablo_vector {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 48px;   
+}

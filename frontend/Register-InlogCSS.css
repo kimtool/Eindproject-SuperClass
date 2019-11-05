@@ -1,8 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
 body {
     background-color: black;
     background: url('../images/afbeeldingen/topbanner50.jpg') no-repeat center center fixed;    
     background-size: cover;
     font-family: europa, Segoe UI;
+    font-size: 14px;
+    color: rgba(255,255,255,1);
 }
 #hexagonlogo {
     display: block;
@@ -23,54 +36,42 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 290px;
-    height: 300px;
-    overflow: visible;
+    height: 320px;
     background-color: rgba(255,255,255,0);
 }
 #fields {
     padding-top: 30px;
 }
 .field {
-    width: 270px;
+    width: 290px;
     height: 15px;
     margin-top: 15px;
-    padding: 10px;
-    overflow: visible;
-    white-space: nowrap;
+    padding: 17px;
     text-align: left;
-    font-style: normal;
-    font-weight: normal;
     font-size: 15px; 
     border: white;
 }
 #reset{
     font-size: 20px;
     text-align: center;
-    color: rgba(255,255,255,1);
 }
-#send-email{
-    font-size: 13px;
+#send_email{
+    margin-top: 35px;
     text-align: center;
-    color: rgba(255,255,255,1);
 }
 #service_agreement {
-    font-size: 13px;
-    color: rgba(255,255,255,1);
+    margin-top: 10px;
 }
 #login {
-    font-size: 13px;
-    color: rgba(255,255,255,1);
     text-align: center;
-    padding-top: 20px;
+    margin-top: 40px;
 }
 #login_padding{
-    padding-top: 50px;
+    padding-top: 49px;
 }
-#register {
-    font-size: 13px;
-    color: rgba(255,255,255,1);
+.right_align {
     text-align: right;
-    padding-top: 20px;
+    margin-top: 5px;
 }
 .button {
     display: block; 
@@ -78,6 +79,7 @@ body {
     margin-right: auto;
     width: 136px;
     height: 58px;
+    padding: 15px;
     text-align: center; 
     font-size: 17px;
     color: rgba(255,255,255,1);
@@ -86,6 +88,9 @@ body {
 
 
 @media (min-width: 410px){
+    body {
+        font-size: 15px;
+    }
     #hexagonlogo {        
         margin-top: 25px;
         width: 216px;
@@ -95,9 +100,8 @@ body {
         width: 68px;   
     }
     #register_block {
-        margin-top: -40px;
-        width: 400px;
-        height: 420px;
+        width: 380px;
+        height: 380px;
     }
     #fields {
         padding-top: 60px;
@@ -105,28 +109,15 @@ body {
     .field {    
         width: 380px;
         height: 26px;
-        margin-top: 15px;
-        padding: 10px;
-        font-size: 20px;
+        font-size: 17px;
     }
     #reset{
         font-size: 30px;
     }
-    #send-email{
-        font-size: 18px;
-    }
-    #service_agreement {
-        font-size: 16px;
+    #send_email{
+        padding-top: 4px;
     }
     #login {
-        font-size: 16px;
-        padding-top: 20px;
-    }
-    #login_padding{
-        padding-top: 61px;
-    }
-    #register {
-        font-size: 16px;
         padding-top: 20px;
     }
     .button {
