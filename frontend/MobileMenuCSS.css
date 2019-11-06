@@ -18,16 +18,19 @@ body {
     color: rgba(255,255,255,1);
 }
 #hexagonlogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
+    position: relative;
+    margin-left: 50%;
+    margin-top: 35px;
+    transform: translate(-50%, 0);
     width: 114px;
 }
-#Hexagon_logo_Don_Diablo_vector {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#menu_icon {
+    position: absolute;
+    box-sizing: border-box;
+    margin-left: 25px;
     margin-top: 25px;
-    width: 48px;   
+    width: 32px;   
+}
+.change.menu_icon {
+    width: 50px;
 }
