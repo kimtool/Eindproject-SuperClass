@@ -17,6 +17,9 @@ body {
     font-size: 14px;
     color: rgba(255,255,255,1);
 }
+#body {
+    max-width: 100%;
+}
 #hexagonlogo {
     position: relative;
     margin-left: 50%;
@@ -31,6 +34,30 @@ body {
     margin-top: 25px;
     width: 32px;   
 }
-.change.menu_icon {
-    width: 50px;
+#menu{
+    background-image: url('../images/afbeeldingen/DLjGsMPX4AE-0Sy.jpg');
+}
+.nav li a{    
+    font-size: 20px;
+    color: rgba(255,255,255,.6);
+    text-decoration: none;    
+}
+.nav li a:hover{
+    color: rgba(255,255,255,1)
+}
+.nav li {
+    list-style: none;
+    padding: 16px;    
+    text-align: center;
+}
+.nav {
+    margin-top: 50px;
+    display: none;
+}
+.change {
+    display: block;
+}
+#menu_bg{
+    background: url("../images/afbeeldingen/DLjGsMPX4AE-0Sy.jpg") no-repeat center center fixed;
+    position: absolute;
 }
