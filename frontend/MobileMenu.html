@@ -8,10 +8,17 @@
     <link href="MobileMenuCSS.CSS" rel="stylesheet">
 </head>
 <body>
-    <div id="menu" onclick="onClickMenu()">
-        <img id="menu_icon" src="../images/Menu button.png">
+    <!--<img id="body" src="../images/afbeeldingen/topbanner80.jpg">-->
+    <div id="menu">
+        <img id="menu_icon" src="../images/Menu button.png" onclick="changeIcon()">
     </div>
     <img id="hexagonlogo" src="../images/hexagonlogo_A1_Rectangle_13_pattern.png">
+    <ul id="nav" class="nav">
+        <li><a href="#">MY PROFILE</a></li>
+        <li><a href="#">MY DEMO'S</a></li>
+        <li><a href="#">DEMO DROP</a></li>
+    </ul>
+    <div class="menu_background" id="menu_background"></div>
     <script src="MobileMenuJS.js"></script>
 </body>
 </html>
