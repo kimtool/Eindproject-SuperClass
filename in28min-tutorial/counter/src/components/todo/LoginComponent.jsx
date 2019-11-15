@@ -20,15 +20,38 @@ class LoginComponent extends Component {
         )
     }
     loginClicked = () => {   
-        if(this.state.username==="in28min" && this.state.password==="pass123"){   
-            AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
+        // if(this.state.username==="in28min" && this.state.password==="pass123"){   
+        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
+        //     this.props.history.push(`/welcome/${this.state.username}`)
+        // }
+        // else {             
+        //     this.setState({showErrorMessage:true})
+        //     this.setState({wasLoginSuccesful:false})
+        // }
+        // AuthenticationService
+        // .executeBasicAuthenticationService(this.state.username,this.state.password)
+        // .then(() => {                
+        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
+        //     this.props.history.push(`/welcome/${this.state.username}`)
+        //     }).catch(() => {
+        //         this.setState({showErrorMessage:true})
+        //         this.setState({wasLoginSuccesful:false})
+        //     })
+
+
+        //instead of password we need a token, token comes from response.data
+        AuthenticationService
+        .executeJwtAuthenticationService(this.state.username,this.state.password)
+        .then((response) => {                
+            AuthenticationService.registerSuccessfulLoginForJws(this.state.username, response.data.token);
             this.props.history.push(`/welcome/${this.state.username}`)
-        }
-        else {             
-            this.setState({showErrorMessage:true})
-            this.setState({wasLoginSuccesful:false})
-        }
-    }   
+            }).catch(() => {
+                this.setState({showErrorMessage:true})
+                this.setState({wasLoginSuccesful:false})
+            })
+        }        
+
+       
     render(){
         return (
             <div>

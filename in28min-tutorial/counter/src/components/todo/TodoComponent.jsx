@@ -66,7 +66,7 @@ class TodoComponent extends Component {
 
         return <div>
             <h1>Todo</h1>
-            <div className="conainer">
+            <div className="cotnainer">
                 <Formik                     
                     // initialValues={{description: description, targetDate: targetDate}}
                     initialValues={{description, targetDate}}
