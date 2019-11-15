@@ -35,6 +35,7 @@ public class ProducerEntity extends UserEntity {
 	private ArrayList<String> producerComments = new ArrayList<String>();
 
 	
+	
 	// getters
 	public long getProducerId() {
 		return producerId;
@@ -55,6 +56,7 @@ public class ProducerEntity extends UserEntity {
 	public ArrayList<String> getProducerComments() {
 		return producerComments;
 	}
+	
 	
 	
 	// setters
