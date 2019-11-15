@@ -1,17 +1,21 @@
 package hexagon.demodrop.api.entitiy;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+
 @Entity(name="producers")
 public class ProducerEntity extends UserEntity {
 
 
 	private static final long serialVersionUID = 1571268586835884834L;
+	
 	
 	// primary key
 	@Id
@@ -28,7 +32,7 @@ public class ProducerEntity extends UserEntity {
 	@Column(nullable=false)
 	private int age;
 	
-	private ArrayList<String> comments = new ArrayList<String>();
+	private ArrayList<String> producerComments = new ArrayList<String>();
 
 	
 	// getters
@@ -48,8 +52,8 @@ public class ProducerEntity extends UserEntity {
 		return age;
 	}
 
-	public ArrayList<String> getComments() {
-		return comments;
+	public ArrayList<String> getProducerComments() {
+		return producerComments;
 	}
 	
 	
@@ -70,8 +74,8 @@ public class ProducerEntity extends UserEntity {
 		this.age = age;
 	}
 
-	public void setComments(ArrayList<String> comments) {
-		this.comments = comments;
+	public void setProducerComments(ArrayList<String> producerComments) {
+		this.producerComments = producerComments;
 	}
 	
 	

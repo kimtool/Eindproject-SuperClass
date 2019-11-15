@@ -8,13 +8,16 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Entity(name="users")
 public class UserEntity implements Serializable {
 	
 
 	private static final long serialVersionUID = -331502494278011419L;
-
+	
+	// primary key
 	@Id
+	// auto-generated and incremented value (one-by-one)
 	@GeneratedValue
 	private long id;
 	
