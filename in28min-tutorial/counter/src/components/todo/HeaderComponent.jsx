@@ -1,21 +1,22 @@
 import React, {Component} from 'react'
 import AuthenticationService from './AuthenticationService.js'
 import {Link, withRouter} from 'react-router-dom'
+import hexagonlogo from '../images/hexagonlogo_A1_Rectangle_13_pattern.png'
+import '../../App.css'
 
 class HeaderComponent extends Component{
     render(){
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
         return (
             <header>
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div><a href="https://courses.in28minutes.com/" className="navbar-brand">in28Minutes</a></div>
-                    <ul className="navbar-nav">
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/kim">Home</Link></li>}
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todo's</Link></li>}
-                    </ul>
-                    <ul className="navbar-nav navbar-collapse justify-content-end">
-                        {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/logout" onClick={AuthenticationService.logout}>Logout</Link></li>}
+                <nav className="navbar navbar-expand-md navbar-dark bg-dark">                    
+                    <ul className="navbar-nav navbar-collapse menu-bar">
+                        {isUserLoggedIn && <li><Link className="nav-link menu-icon" to="/welcome/name">HOME</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link menu-icon" to="/todos">MY PROFILE</Link></li>}
+                        <li><Link className="nav-link menu-icon" to="/welcome/name"><img className="hexagonlogo" src={hexagonlogo}/></Link></li>
+                        {/* {!isUserLoggedIn && <li><Link className="nav-link menu-icon" to="/login">LOGIN</Link></li>} */}
+                        {isUserLoggedIn && <li><Link className="nav-link menu-icon"  to="/todos">DEMO'S</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link menu-icon" to="/logout" onClick={AuthenticationService.logout}>LOGOUT</Link></li>}
                     </ul>
                 </nav>
             </header>

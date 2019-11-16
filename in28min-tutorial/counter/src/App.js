@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import TodoApp from './components/todo/TodoApp';
+import DemoApp from './components/todo/DemoApp';
 import './bootstrap.css';
 
 function App() {
   return (
     <div className="App">
       {/* <Counter/> */}
-      <TodoApp/>
+      <DemoApp/>
     </div>
   );
 }

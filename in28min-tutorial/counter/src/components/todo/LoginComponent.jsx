@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import AuthenticationService from './AuthenticationService.js'
+import Hexagon_logo_vector from '../images/Hexagon logo Don Diablo vector FillWhite.png'
+import '../../App.css'
 
 class LoginComponent extends Component {
     constructor(props){
@@ -19,26 +21,7 @@ class LoginComponent extends Component {
             }
         )
     }
-    loginClicked = () => {   
-        // if(this.state.username==="in28min" && this.state.password==="pass123"){   
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
-        //     this.props.history.push(`/welcome/${this.state.username}`)
-        // }
-        // else {             
-        //     this.setState({showErrorMessage:true})
-        //     this.setState({wasLoginSuccesful:false})
-        // }
-        // AuthenticationService
-        // .executeBasicAuthenticationService(this.state.username,this.state.password)
-        // .then(() => {                
-        //     AuthenticationService.registerSuccessfulLogin(this.state.username,this.state.password);
-        //     this.props.history.push(`/welcome/${this.state.username}`)
-        //     }).catch(() => {
-        //         this.setState({showErrorMessage:true})
-        //         this.setState({wasLoginSuccesful:false})
-        //     })
-
-
+    loginClicked = () => {
         //instead of password we need a token, token comes from response.data
         AuthenticationService
         .executeJwtAuthenticationService(this.state.username,this.state.password)
@@ -49,22 +32,29 @@ class LoginComponent extends Component {
                 this.setState({showErrorMessage:true})
                 this.setState({wasLoginSuccesful:false})
             })
-        }        
+        }  
 
-       
     render(){
         return (
-            <div>
-                <h1>Login</h1>
-                <div className="conainer">
+            <>                
+                <img id="Hexagon_logo_vector" src={Hexagon_logo_vector}/>
+                <div id="register_block">
                 {this.state.wasLoginSuccesful && <div>Login Succesful</div>}
                 {this.state.showErrorMessage && <div className="alert alert-warning">Invalid Login</div>}
-                Username: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/><br/>
-                Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/><br/>
-                <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
-                </div>
-            </div>
-        )
+                    <div id="fields">
+                        <div id="login_padding">
+                            <input type="text" class="field" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required/><br/>
+                            <input type="password" class="field" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
+                        </div>
+                    </div>
+                    <div class="right_align">
+                        <a href="ForgotPasswordPage.html" target="blank" style={{color: "white"}}>Forgot password?</a><br/>
+                        <a href="RegisterPage.html" target="blank" style={{color: "white"}}>Register</a>
+                    </div>              
+                </div> 
+                <button className="button" onClick={this.loginClicked}>Login</button>
+            </>
+        );
     }
 }
 
