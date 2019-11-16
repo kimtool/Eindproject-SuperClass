@@ -3,8 +3,9 @@ import moment from 'moment'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import TodoDataService from '../api/todo/TodoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import '../../App.css'
 
-class TodoComponent extends Component {
+class AddDemoComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -65,8 +66,8 @@ class TodoComponent extends Component {
         //let targetDate = this.state.targetDate
 
         return <div>
-            <h1>Todo</h1>
-            <div className="cotnainer">
+            <h1 className="title">UPLOAD DEMO</h1>
+            <div className="container">
                 <Formik                     
                     // initialValues={{description: description, targetDate: targetDate}}
                     initialValues={{description, targetDate}}
@@ -88,7 +89,7 @@ class TodoComponent extends Component {
                                 <label>Target Date</label>
                                 <Field className="form-control" type="date" name="targetDate"/>
                             </fieldset>
-                            <button className="btn btn-success" type="submit">Save</button>
+                            <button className="button" type="submit">Save</button>
                         </Form>                        
                     )}
                 </Formik>                
@@ -97,4 +98,4 @@ class TodoComponent extends Component {
     }    
 }
 
-export default TodoComponent
+export default AddDemoComponent

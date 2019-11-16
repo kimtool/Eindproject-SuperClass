@@ -16,16 +16,8 @@ class ListTodosComponent extends Component {
         }
     }
 
-    componentDidMount() {             //is called when component is called for the first time and put in the browser
+    componentDidMount() { 
         this.refreshTodos();
-        // let username = AuthenticationService.getLoggedInUsername()
-        // TodoDataService.retrieveAllTodos(username)
-        // .then(
-        //     response => {
-        //     //console.log(response)
-        //     this.setState({todos : response.data})
-        // })
-        //.catch(error => this.handleError(error))  
     }    
 
     refreshTodos = () => {
@@ -33,15 +25,12 @@ class ListTodosComponent extends Component {
         TodoDataService.retrieveAllTodos(username)
         .then(
             response => {
-            //console.log(response)
             this.setState({todos : response.data})
         })
     }
 
     deleteTodoClicked = (id) => {
-        // /todos/${id}
         let username = AuthenticationService.getLoggedInUsername()
-        //console.log(id+" "+username);
         TodoDataService.deleteTodo(username, id)
         .then (
             response =>{
@@ -53,27 +42,20 @@ class ListTodosComponent extends Component {
 
     updateTodoClicked = (id) => {
         let username = AuthenticationService.getLoggedInUsername()
-        //console.log(id+" "+username);
         this.props.history.push(`/todos/${id}`)
-        // TodoDataService.deleteTodo(username, id)
-        // .then (
-        //     response =>{
-        //         this.setState({message:`Delete of todo ${id} Succesful`});
-        //         this.refreshTodos();
-        //     }
-        // )
     }
 
     addTodoClicked = () => {
         this.props.history.push(`/todos/-1`)
     }
 
-    render(){               //gets called when a state in the component changes, view must be updated
+    render(){
         return (
         <div>
-            <h1>List Todo's</h1>
+            
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
-            <div className="container">
+            <h1 className="title">DEMO'S</h1>
+            <div className="container">            
             <table className="table">
                 <thead>
                     <tr>
@@ -104,7 +86,7 @@ class ListTodosComponent extends Component {
                 </tbody>
             </table>
             <div className="row">
-                <button className="btn btn-success" onClick={this.addTodoClicked}>Add</button>
+                <button className="button" onClick={this.addTodoClicked}>Add</button>
             </div>
             </div>
         </div>
