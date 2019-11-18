@@ -16,11 +16,6 @@ html{
     font-size: 14px;
     color: rgba(255,255,255,1);
 }
-.hexagonlogo {
-    display: block;
-    margin-top: 10px;
-    width: 140px;
-}
 #Hexagon_logo_vector {
     display: block;
     margin-left: auto;
@@ -85,20 +80,8 @@ html{
     color: rgba(255,255,255,1);
     border-style: solid;
 }
-.menu-bar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    
-}
-.menu-icon{
-    font-weight: 500;
-    margin: 50px;
-}
 
-
-@media (min-width: 410px){
+@media (min-width: 751px){
     body {
         font-size: 15px;
     }

@@ -37,14 +37,14 @@ class LoginComponent extends Component {
     render(){
         return (
             <>                
-                <img id="Hexagon_logo_vector" src={Hexagon_logo_vector}/>
+                <img id="Hexagon_logo_vector" alt="" src={Hexagon_logo_vector}/>
                 <div id="register_block">
                 {this.state.wasLoginSuccesful && <div>Login Succesful</div>}
                 {this.state.showErrorMessage && <div className="alert alert-warning">Invalid Login</div>}
                     <div id="fields">
                         <div id="login_padding">
-                            <input type="text" class="field" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required/><br/>
-                            <input type="password" class="field" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
+                            <input type="text" className="field" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required/><br/>
+                            <input type="password" className="field" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
                         </div>
                     </div>
                     <div class="right_align">
