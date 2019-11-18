@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import TodoDataService from '../api/todo/TodoDataService.js'
+import TodoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import moment from 'moment'
 
@@ -41,7 +41,6 @@ class ListTodosComponent extends Component {
     }
 
     updateTodoClicked = (id) => {
-        let username = AuthenticationService.getLoggedInUsername()
         this.props.history.push(`/todos/${id}`)
     }
 
@@ -62,10 +61,10 @@ class ListTodosComponent extends Component {
                         <th>id</th>
                         <th>user</th>
                         <th>description</th>
-                        <th>Target Date</th>
-                        <th>Is Completed?</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th>Upload Date</th>
+                        <th>Status</th>
+                        {/* <th>Update</th>
+                        <th>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -78,8 +77,8 @@ class ListTodosComponent extends Component {
                                 <td>{todo.description}</td>
                                 <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
                                 <td>{todo.isDone.toString()}</td>                                
-                                <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
-                                <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
+                                {/* <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
+                                <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td> */}
                             </tr>
                         )
                     }

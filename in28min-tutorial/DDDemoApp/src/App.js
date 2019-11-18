@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import DemoApp from './components/todo/DemoApp';
+import DemoApp from './components/DemoApp/DemoApp';
 import './bootstrap.css';
 
 function App() {
