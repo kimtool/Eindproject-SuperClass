@@ -1,0 +1,4 @@
+com\example\demospringdb\User.class
+com\example\demospringdb\UserRepository.class
+com\example\demospringdb\UserController.class
+com\example\demospringdb\DemospringdbApplication.class

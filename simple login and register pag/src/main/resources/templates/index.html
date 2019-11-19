@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h2>Log in page</h2>
+    <p th:text="'Hello, ' + ${name} + '!'" />
+    <div class="add">
+        <h2>Registration</h2>
+        <form action="/add" method="GET">
+            User name:<input type="text" name="name"><br>
+            E-Mail:<input type="text" name="email"><br>
+            Password:<input type="password" name="password"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="login">
+        <h2>Login</h2>
+        <form action="/login" method="GET">
+            E-Mail:<input type="text" name="email"><br>
+            Password:<input type="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="all">
+        <h2><a href="/all">all registor</a></h2>
+    </div>
+</body>
+
+</html>
