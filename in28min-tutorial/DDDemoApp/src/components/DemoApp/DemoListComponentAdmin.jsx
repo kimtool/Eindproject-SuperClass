@@ -58,13 +58,13 @@ class ListTodosComponent extends Component {
             <table className="table">
                 <thead>
                     <tr>
-                        {/* <th>id</th>
-                        <th>user</th> */}
+                        <th>id</th>
+                        <th>user</th>
                         <th>description</th>
                         <th>Upload Date</th>
                         <th>Status</th>
-                        {/* <th>Update</th>
-                        <th>Delete</th> */}
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,13 +72,13 @@ class ListTodosComponent extends Component {
                         this.state.todos.map (
                             todo =>                        
                             <tr key={todo.id}>
-                                {/* <td>{todo.id}</td>
-                                <td>{todo.username}</td> */}
+                                <td>{todo.id}</td>
+                                <td>{todo.username}</td>
                                 <td>{todo.description}</td>
                                 <td>{moment(todo.targetDate).format("YYYY-MM-DD")}</td>
                                 <td>{todo.isDone.toString()}</td>                                
-                                {/* <td><button className="button_small" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
-                                <td><button className="button_small" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td> */}
+                                <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
+                                <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                             </tr>
                         )
                     }
