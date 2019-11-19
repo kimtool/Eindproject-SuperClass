@@ -10,18 +10,18 @@ class WelcomeComponent extends Component {
 
     render(){
         return <div>
-            <h1>Welcome!</h1>
+            <h1 className="title">Welcome!</h1>
             <div className="container">
                 Welcome {this.props.match.params.name}.
                 You can manage your todos <Link to="/todos">here</Link>.
             </div>
-            <div className="container">
+            {/* <div className="container">
                 Click here to get a customized welcome message.
                 <button onClick={this.retrieveWelcomeMessage}>Get Welcome Message </button>
             </div>
             <div className="container">
                 {this.state.welcomeMessage}
-            </div>
+            </div> */}
             {/* <div className="container">
                 {this.state.errorMessage}
             </div> */}
