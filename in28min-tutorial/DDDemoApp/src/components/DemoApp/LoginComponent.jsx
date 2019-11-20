@@ -3,6 +3,8 @@ import AuthenticationService from './AuthenticationService.js'
 import Hexagon_logo_vector from '../images/Hexagon logo Don Diablo vector FillWhite.png'
 import '../../App.css'
 
+//control component the React component that renders a form 
+//also controls what happens in that form on subsequent user input (this.state)
 class LoginComponent extends Component {
     constructor(props){
         super(props)
@@ -13,6 +15,8 @@ class LoginComponent extends Component {
             showErrorMessage: false
         }
     }
+
+//handles change for all input fields
     handleChange = (event) => {
         this.setState(
             {
@@ -22,9 +26,8 @@ class LoginComponent extends Component {
         )
     }
     loginClicked = () => {
-        //instead of password we need a token, token comes from response.data
-        AuthenticationService
-        .executeJwtAuthenticationService(this.state.username,this.state.password)
+//instead of password we need a token, token comes from response.data
+        AuthenticationService.executeJwtAuthenticationService(this.state.username,this.state.password)
         .then((response) => {                
             AuthenticationService.registerSuccessfulLoginForJws(this.state.username, response.data.token);
             this.props.history.push(`/welcome/${this.state.username}`)
@@ -39,6 +42,7 @@ class LoginComponent extends Component {
             <>                
                 <img id="Hexagon_logo_vector" alt="" src={Hexagon_logo_vector}/>
                 <div id="register_block">
+{/* if condition is true, div will be executed */}
                 {this.state.wasLoginSuccesful && <div>Login Succesful</div>}
                 {this.state.showErrorMessage && <div className="alert alert-warning">Invalid Login</div>}
                     <div id="fields">
@@ -47,7 +51,7 @@ class LoginComponent extends Component {
                             <input type="password" className="field" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
                         </div>
                     </div>
-                    <div class="right_align">
+                    <div className="right_align">
                         <a href="ForgotPasswordPage.html" target="blank" style={{color: "white"}}>Forgot password?</a><br/>
                         <a href="RegisterPage.html" target="blank" style={{color: "white"}}>Register</a>
                     </div>              

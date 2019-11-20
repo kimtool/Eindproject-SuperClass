@@ -11,6 +11,7 @@ class HeaderComponent extends Component{
             <header className="desktop-header">
                 <nav className="menu-bar">                    
                     <ul className="navigation left">
+{/* links are only shown when isUserLoggedIn is true */}
                         {isUserLoggedIn && <li><Link className="menu-icon" to="/welcome/name">HOME</Link></li>}
                         {isUserLoggedIn && <li><Link className="menu-icon" to="/todos">MY PROFILE</Link></li>}
                     </ul>    
@@ -25,5 +26,6 @@ class HeaderComponent extends Component{
         )
     }
 }
-
-export default withRouter(HeaderComponent)      //ensure header menus are updated whenever the router is called
+//To ensure that header menus are updated whenever the router is called 
+//we need to wrap HeaderComponent with a call to withRouter 
+export default withRouter(HeaderComponent) 

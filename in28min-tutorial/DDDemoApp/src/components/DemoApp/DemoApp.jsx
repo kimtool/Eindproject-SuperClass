@@ -20,9 +20,11 @@ class DemoApp extends Component {
             <div className="DemoApp">   
                 <Router>
                     <HamburgerMenuComponent/>
-                    <HeaderComponent/>      {/* AuthenticatedRoute, only authenticated user can take this route */}
+                    <HeaderComponent/>      
                     <main style={{marginTop: "80px"}}>
-                        <Switch >                {/* Make sure only one route is used at a time */}
+{/* Make sure only one route is used at a time */}
+                        <Switch >          
+{/* Route defines wich page has wich url, AuthenticatedRoute can only be taken by authenticated users */}                                  
                             <Route path="/" exact component={LoginComponent}/>
                             <Route path="/login" component={LoginComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
@@ -33,9 +35,7 @@ class DemoApp extends Component {
                         </Switch>
                     </main>
                     <FooterComponent/>
-                </Router>                 
-                {/* <LoginComponent/>
-                <WelcomeComponent/> */}
+                </Router>               
             </div>
         )
     }

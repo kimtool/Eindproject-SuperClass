@@ -9,8 +9,7 @@ class ListTodosComponent extends Component {
         this.state = {
             todos: 
             [               //better not to do initial API call directly in the constructor, otherwise state will not be initialized until API call is completed
-            //{id:1, description:"Learn React", done:false, targetDate:new Date()}, 
-            //{id:2, description:"Cry", done:false, targetDate:new Date()}
+            //{id:1, description:"Learn React", done:false, targetDate:new Date()},
             ], 
             message : null
         }

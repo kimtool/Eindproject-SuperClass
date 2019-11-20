@@ -3,14 +3,10 @@ import {withRouter} from 'react-router-dom'
 import AuthenticationService from './AuthenticationService.js'
 import hexagonlogo from '../images/hexagonlogo_A1_Rectangle_13_pattern.png'
 import menu_icon from '../images/Menu button.png'
-import ViewHamburgerMenu from './ViewHamburgerMenu.jsx'
+import ViewHamburgerMenuComponent from './ViewHamburgerMenuComponent.jsx'
 import '../../HamburgerMenu.css'
 
 class HamburgerMenuComponent extends Component{
-
-    constructor(props) {
-        super(props)        
-    }
 
     state = {isHamburgerMenuOpen: false}
 
@@ -23,7 +19,7 @@ class HamburgerMenuComponent extends Component{
         const {isHamburgerMenuOpen} = this.state;
         let mobileMenu;
         if(this.state.isHamburgerMenuOpen){
-            mobileMenu = <ViewHamburgerMenu/>
+            mobileMenu = <ViewHamburgerMenuComponent/>
         }      
         return (
             <div className="m-menu">
