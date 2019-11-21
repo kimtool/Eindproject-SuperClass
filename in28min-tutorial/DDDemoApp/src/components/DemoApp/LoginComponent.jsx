@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+ import React, {Component} from 'react'
 import AuthenticationService from './AuthenticationService.js'
 import Hexagon_logo_vector from '../images/Hexagon logo Don Diablo vector FillWhite.png'
 import '../../App.css'
