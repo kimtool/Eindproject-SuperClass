@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: unizef
+Build-Jdk: 13.0.1
+Implementation-Title: springboot-registration-login
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: com.hellokoding.springboot
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/springboot-registration-login
+Created-By: Maven Integration for Eclipse
+
