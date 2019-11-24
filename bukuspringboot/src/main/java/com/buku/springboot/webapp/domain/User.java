@@ -19,68 +19,67 @@ import javax.persistence.OneToMany;
  * @author Kim Tool <kimtool@hotmail.com>
  */
 @Entity
-public class User {
+abstract class User {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long userid;
-    private String username;
+//   private String username;
     private String email;
     private String password;
 //cascade defines how cascading affects the entities
 //ALL means if user is deleted, demos are also deleted
 //mappedBy means the demo calss has the owner field, which is the foreign key in this relationship
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-    private List<Demo> demos;
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+//    private List<Demo> demos;
     
-    public User(){        
-    }
+    protected User(){}
 
-    public User(String username, String email, String password) {
+    protected User(String email, String password) {
         super();
-        this.username = username;
+//        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public long getUserId() {
+    private long getUserId() {
         return userid;
     }
 
-    public void setUserId(long userid) {
+    private void setUserId(long userid) {
         this.userid = userid;
     }
+//
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    public void setUsername(String username) {
+//        this.username = username;
+//    }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
+    private String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    private void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPassword() {
+    private String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
-    public List<Demo> getDemos() {
-        return demos;
-    }
-
-    public void setDemos(List<Demo> demos) {
-        this.demos = demos;
-    }
+//    public List<Demo> getDemos() {
+//        return demos;
+//    }
+//
+//    public void setDemos(List<Demo> demos) {
+//        this.demos = demos;
+//    }
     
     
     

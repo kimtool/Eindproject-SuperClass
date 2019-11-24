@@ -35,17 +35,16 @@ public class Demo {
 //EAGER:demo's will be fetched immediately with user
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="producer")
-    private User user;
+    private Producer producer;
     private String title;
     private String description;
     
-    public Demo(){        
-    }
+    public Demo(){}
 
-    public Demo(User user, String title, String description) {
+    public Demo(Producer producer, String title, String description) {
         super();
   //    this.id = id;     no need because automatically generated
-        this.user = user;
+        this.producer = producer;
         this.title = title;
         this.description = description;
     }
@@ -58,12 +57,12 @@ public class Demo {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Producer getProducer() {
+        return producer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setProducer(Producer producer) {
+        this.producer = producer;
     }
 
     public String getTitle() {

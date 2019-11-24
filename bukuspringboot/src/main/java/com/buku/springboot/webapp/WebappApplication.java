@@ -2,7 +2,8 @@ package com.buku.springboot.webapp;
 
 import com.buku.springboot.webapp.domain.Demo;
 import com.buku.springboot.webapp.domain.DemoRepository;
-import com.buku.springboot.webapp.domain.User;
+import com.buku.springboot.webapp.domain.Producer;
+//import com.buku.springboot.webapp.domain.User;
 import com.buku.springboot.webapp.domain.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,8 +30,8 @@ public class WebappApplication {
     CommandLineRunner runner(){
         return args -> {
 //add user objects and save to database
-            User kim = new User("Kim", "", "");
-            User pim = new User("Pim", "", "");      
+            Producer kim = new Producer("Kim", "kimtool@hotmail.com", "");
+            Producer pim = new Producer("Pim", "info@pimhoebebouw.nl", "");      
             userRepository.save(kim);
             userRepository.save(pim);
 //Save demo data to database
