@@ -1,4 +1,3 @@
 com\example\demo\controller\UserController.class
 com\example\demo\respository\UserRepository.class
 com\example\demo\model\User.class
-com\example\demo\UserApplication.class
