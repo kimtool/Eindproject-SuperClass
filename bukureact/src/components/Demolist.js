@@ -51,10 +51,10 @@ class DemoList extends Component {
 
 //Add new demo
     addDemo(demo){
-        fetch(`${SERVER_URL}/api/demoes`, {method: 'POST', headers: {"Content-Type": "application/json",},
-    body:JSON.stringify(demo)})
-    .then(res => this.fetchDemos())
-    .catch(err => console.error(err))
+            fetch(`${SERVER_URL}/api/demoes`, {method: 'POST', headers: {"Content-Type": "application/json",},
+        body:JSON.stringify(demo)})
+        .then(res => this.fetchDemos())
+        .catch(err => console.error(err))
     }
 
 //create React Table. Data prop is this.state.demos, contains fetched demos.
