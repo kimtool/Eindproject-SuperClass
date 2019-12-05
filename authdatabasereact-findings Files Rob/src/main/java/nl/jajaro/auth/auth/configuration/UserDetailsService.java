@@ -21,5 +21,4 @@ public class UserDetailsService implements org.springframework.security.core.use
         System.out.println(String.format("return UserDetails for( %s with password %s )was called",userDetails.getUsername(),userDetails.getPassword()));
         return userDetails;
     }
-
  }
