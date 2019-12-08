@@ -1,15 +1,14 @@
 import React, {Component} from 'react'
+import AuthenticationService from './AuthenticationService.js'
+
 
 class WelcomeComponent extends Component {
-    constructor(props) {
-        super(props)
-        this.state={welcomeMessage:""}
-    }
 
-    render(){
+    render(){     
         return <div>
             <h1 className="title">Welcome {this.props.match.params.name}!</h1>
             <div className="container">
+                {/* {AuthenticationService.isUserAdmin() && <div>You are logged in as Admin</div>} */}
             </div>
         </div>
     }

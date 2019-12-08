@@ -37,17 +37,6 @@ html{
 #fields {
     padding-top: 30px;
 }
-.field {
-    color: black;
-    width: 290px;
-    height: 15px;
-    margin-top: 15px;
-    padding: 17px;
-    text-align: left;
-    font-size: 15px; 
-    background: rgba(255,255,255,1);
-    border-style: none;
-}
 #reset{
     font-size: 20px;
     text-align: center;
@@ -110,6 +99,11 @@ html{
     color:white !important;
     border-radius: 0px !important;
     background: rgba(0, 0, 0, .2) !important;
+    margin-top: 12px !important;
+    border-width: 1.2px !important;
+}
+.form-control::placeholder {
+    color: rgba(255,255,255,1) !important;
 }
 
 @media (min-width: 751px){
