@@ -29,10 +29,9 @@ class ListDemosComponent extends Component {
     }
 
     deleteDemoClicked = (id) => {
-        let username = AuthenticationService.getLoggedInUsername()
-        DemoDataService.deletDemo(username, id)
-        .then (
-            response =>{
+        let name = AuthenticationService.getLoggedInUsername()
+        DemoDataService.deleteDemo(name, id)
+        .then(response =>{
                 this.setState({message:`Delete of demo ${id} Succesful`});
                 this.refreshDemos();
             }

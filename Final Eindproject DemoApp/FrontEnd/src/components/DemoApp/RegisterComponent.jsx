@@ -15,6 +15,7 @@ class RegisterComponent extends Component {
             username: "",
             email: "",
             password: "",
+            role: "",
             showErrorMessage: false
         }
     } 
@@ -38,7 +39,8 @@ class RegisterComponent extends Component {
         let user = {id: this.state.id,
                     username: values.username,
                     email: values.email, 
-                    password: values.password}
+                    password: values.password,
+                    role: "ROLE_USER"}
         
             UserDataService.createUser(user)        //create user
                 .then(() => this.props.history.push("/login"))        //go back to                
