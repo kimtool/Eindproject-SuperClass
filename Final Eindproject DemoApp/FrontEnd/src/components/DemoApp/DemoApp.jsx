@@ -12,6 +12,7 @@ import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
 
 //terminal: npm add react-router-dom
 
@@ -32,7 +33,8 @@ class DemoApp extends Component {
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
                             <AuthenticatedRoute path="/demos/:id" component={AddDemoComponent}/>
                             <AuthenticatedRoute path="/demos" component={DemoListComponent}/>
-                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/>                        
+                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
+                            <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>                       
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>
