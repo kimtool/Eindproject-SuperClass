@@ -105,6 +105,9 @@ html{
 .form-control::placeholder {
     color: rgba(255,255,255,1) !important;
 }
+.inputfield {
+    width: 100%;
+}
 
 @media (min-width: 751px){
     body {
