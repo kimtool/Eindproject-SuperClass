@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
+<<<<<<< HEAD
 import UserDataService from "../api/UserDataService"
 import AuthenticationService from './AuthenticationService.js'
+=======
+import AuthenticationService from "./AuthenticationService";
+const username = AuthenticationService.getLoggedInUsername();
+>>>>>>> 52c8cbfc65f5daf575e27996aa5527f532b7e3d9
 
 
 class WelcomeComponent extends Component {
@@ -44,7 +49,10 @@ class WelcomeComponent extends Component {
 
     render(){     
         return <div>
-            <h1 className="title">Welcome {this.props.match.params.name}!</h1>
+            <h1 className="title">Welcome {username}!</h1>
+
+ {/* <h1 className="title">Welcome {this.props.match.params.name}!</h1>  */}
+
             <div className="container">
             <button className="button" onClick={this.buttonClicked}>BUTTON</button>
                 {/* {AuthenticationService.isUserAdmin() && <div>You are logged in as Admin</div>} */}
