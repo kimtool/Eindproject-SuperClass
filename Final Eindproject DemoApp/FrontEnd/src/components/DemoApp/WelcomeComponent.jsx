@@ -1,11 +1,19 @@
 import React, {Component} from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import UserDataService from "../api/UserDataService"
 import AuthenticationService from './AuthenticationService.js'
 =======
 import AuthenticationService from "./AuthenticationService";
 const username = AuthenticationService.getLoggedInUsername();
 >>>>>>> 52c8cbfc65f5daf575e27996aa5527f532b7e3d9
+=======
+
+import UserDataService from "../api/UserDataService"
+import AuthenticationService from './AuthenticationService.js'
+const username = AuthenticationService.getLoggedInUsername();
+
+>>>>>>> 612981817c2b8466688c510900d7647dcef723c0
 
 
 class WelcomeComponent extends Component {
