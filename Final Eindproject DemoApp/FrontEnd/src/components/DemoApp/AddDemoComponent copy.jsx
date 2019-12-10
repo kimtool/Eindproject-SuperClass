@@ -3,11 +3,11 @@ import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import '../../App.css'
 import axios from 'axios';
-const API_BASE = "http://localhost:8080"
+import {API_URL} from "../../Constants"
 
 function submitForm(contentType, data, setResponse) {
     axios({
-        url: `${API_BASE}/jpa/users/{username}/demos`,
+        url: `${API_URL}/users/{username}/demos`,
         method: 'POST',
         data: data,
         headers: {
@@ -19,7 +19,7 @@ function submitForm(contentType, data, setResponse) {
         setResponse("error");
     })
 }
-class UpdateDemoComponent extends Component {
+class AddDemoComponent extends Component {
 
     constructor(props){
         super(props)
@@ -29,16 +29,6 @@ class UpdateDemoComponent extends Component {
             description: "",
             file : ""
         }
-    }
-
-    componentDidMount(){
-        let username = AuthenticationService.getLoggedInUsername()
-        DemoDataService.retrieveDemo(username, this.state.id)
-            .then(response => this.setState({
-                demoname: response.data.demoname,
-                description: response.data.description,
-                file: response.data.file
-            }))
     }
 
     validate = (values) => {
@@ -61,7 +51,7 @@ class UpdateDemoComponent extends Component {
     }
 
     onSubmit = (values) =>{
-        const [demoName, setDemoname] = useState("");
+        const [demoname, setDemoname] = useState("");
         const [file, setFile] = useState(null);
         const [description, setDescription] = useState("");
         // //console.log(values);
@@ -71,7 +61,7 @@ class UpdateDemoComponent extends Component {
         //     demoname: values.demoname,
         //     description: values.description}
         const formData = new FormData();
-        formData.append("demoname", demoName);
+        formData.append("demoname", demoname);
         formData.append("file", file);
         formData.append("description", description);
 
@@ -127,4 +117,4 @@ class UpdateDemoComponent extends Component {
     }
 }
 
-export default UpdateDemoComponent
+export default AddDemoComponent

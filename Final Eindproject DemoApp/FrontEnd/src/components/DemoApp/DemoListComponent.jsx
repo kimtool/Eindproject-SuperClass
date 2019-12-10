@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {Link} from 'react-router-dom'
-import moment from 'moment'
 
 class ListDemosComponent extends Component {
     constructor(props){             //gets called when component is being initialized
@@ -56,8 +55,8 @@ class ListDemosComponent extends Component {
                         <th>id</th>
                         <th>user</th>
                         <th>description</th>
-                        <th>Upload Date</th>
-                        <th>Status</th>
+                        {/* <th>Upload Date</th>
+                        <th>Status</th> */}
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
@@ -71,8 +70,8 @@ class ListDemosComponent extends Component {
                                 <td>{demo.id}</td>
                                 <td>{demo.username}</td>
                                 <td>{demo.description}</td>
-                                <td>{moment(demo.targetDate).format("YYYY-MM-DD")}</td>
-                                <td>{demo.isDone.toString()}</td>                                
+                                {/* <td>{moment(demo.targetDate).format("YYYY-MM-DD")}</td>
+                                <td>{demo.isDone.toString()}</td>                                 */}
                                 <td><button className="button_small" onClick={() => this.updateDemoClicked(demo.id)}>Update</button></td>
                                 <td><button className="button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
                             </tr>
@@ -80,9 +79,8 @@ class ListDemosComponent extends Component {
                     }
                 </tbody>
             </table>
-            <div className="row">
                 <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>                
-            </div>
+            
             </div>
         </div>
         )
