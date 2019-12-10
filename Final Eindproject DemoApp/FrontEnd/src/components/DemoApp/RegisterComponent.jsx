@@ -14,7 +14,9 @@ class RegisterComponent extends Component {
             id: this.props.match.params.id,
             username: "",
             email: "",
-            password: ""
+            password: "",
+            role: "",
+            showErrorMessage: false
         }
     } 
 
@@ -26,33 +28,36 @@ class RegisterComponent extends Component {
             errors.email = "Enter a email"
         } if(!values.password){
             errors.password = "Enter a password"
-        } // else if(values.description.length<5){
-        //     errors.description = "Enter at least 5 characters"
+        } //else if(!values.username){
+        //     errors.username = "Username already exists"
         // } 
         return errors;
-    }
+    }  
 
     onSubmit = (values) =>{
         //console.log(values);
         let user = {id: this.state.id,
                     username: values.username,
                     email: values.email, 
-                    password: values.password}
+                    password: values.password,
+                    role: "ROLE_USER"}
         
             UserDataService.createUser(user)        //create user
-                .then(() => this.props.history.push("/login"))        //go back to
-                console.log("submit succes");        
+                .then(() => this.props.history.push("/login"))        //go back to                
+                .catch(() => {
+                    this.setState({showErrorMessage:true})
+                });        
     }
 
     render(){
-        let {username, email, password} = this.state
+        let {username, email, password, showErrorMessage} = this.state
 
         return <div>
             {/* <h1 className="title">UPLOAD DEMO</h1> */}
             <div>
                 <Formik                     
                     // initialValues={{description: description, targetDate: targetDate}}
-                    initialValues={{username, email, password}}
+                    initialValues={{username, email, password, showErrorMessage}}
                     onSubmit={this.onSubmit}
                     validateOnChange={false}
                     validateOnBlur={false}
@@ -64,21 +69,19 @@ class RegisterComponent extends Component {
                             <img id="Hexagon_logo_vector" alt="" src={Hexagon_logo_vector}/>
                             <ErrorMessage name="username" component="div" className="alert alert-warning"/>
                             <ErrorMessage name="email" component="div" className="alert alert-warning"/>
-                            <ErrorMessage name="password" component="div" className="alert alert-warning"/>                            
+                            <ErrorMessage name="password" component="div" className="alert alert-warning"/>
+                            {this.state.showErrorMessage && <div className="alert alert-warning">Username or Email already exists</div>}                            
                             <div id="register_block">  
                                 <div id="fields">
                                     <div id="login_padding">
                                         <fieldset className="form-group">
-                                            <label>Username</label>
-                                            <Field autoComplete="off" className="form-control" type="text" name="username"/>
+                                            <Field autoComplete="off" className="form-control" type="text" name="username" placeholder="Username"/>
                                         </fieldset>
                                         <fieldset className="form-group">
-                                            <label>E-mail</label>
-                                            <Field autoComplete="off" className="form-control" type="email" name="email"/>
+                                            <Field autoComplete="off" className="form-control" type="email" name="email" placeholder="E-mail"/>
                                         </fieldset>
                                         <fieldset className="form-group">
-                                            <label>Password</label>
-                                            <Field autoComplete="off" className="form-control" type="password" name="password"/>
+                                            <Field autoComplete="off" className="form-control" type="password" name="password" placeholder="Password"/>
                                         </fieldset>
                                     </div>
                                 </div>

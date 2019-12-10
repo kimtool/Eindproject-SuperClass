@@ -6,7 +6,7 @@
 package com.in28minutes.rest.webservices.WebServices.jwt.resource;
 
 import com.in28minutes.rest.webservices.WebServices.jwt.JwtTokenUtil;
-import com.in28minutes.rest.webservices.WebServices.jwt.JwtUserDetails;
+import com.in28minutes.rest.webservices.WebServices.jwt.user.User;
 import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.*;
@@ -37,7 +37,7 @@ public class JwtAuthenticationRestController {
   private JwtTokenUtil jwtTokenUtil;
 
   @Autowired
-  private UserDetailsService jwtInMemoryUserDetailsService;
+  private UserDetailsService userDetailsService;
   
 //create Authentication Token, value is picked up from property file (application.properties) /authenticate
   @RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)
@@ -48,7 +48,7 @@ public class JwtAuthenticationRestController {
     authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
 //then log the user details
-    final UserDetails userDetails = jwtInMemoryUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+    final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
 //create token
     final String token = jwtTokenUtil.generateToken(userDetails);
@@ -66,7 +66,7 @@ public class JwtAuthenticationRestController {
     String username = jwtTokenUtil.getUsernameFromToken(token);
     
 //gets user details
-    JwtUserDetails user = (JwtUserDetails) jwtInMemoryUserDetailsService.loadUserByUsername(username);
+    User user = (User) userDetailsService.loadUserByUsername(username);
 
 //checks expiration date
     if (jwtTokenUtil.canTokenBeRefreshed(token)) {

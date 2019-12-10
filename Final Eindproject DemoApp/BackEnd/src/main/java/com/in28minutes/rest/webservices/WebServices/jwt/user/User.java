@@ -6,18 +6,25 @@ package com.in28minutes.rest.webservices.WebServices.jwt.user;
  */
 
 import java.util.Collection;
+import java.util.HashSet;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.util.Set;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 public class User implements UserDetails{   
+    
+    private static final long serialVersionUID = 5155720064139820502L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto generated
     private Long id;      
@@ -26,11 +33,7 @@ public class User implements UserDetails{
     @Column(unique = true)
     private String email;
     private String password;
-    private String role = "ROLE_USER";
-    @Transient
-    private String passwordConfirm;
-//    @ManyToMany
-//    private Set<Role> roles;
+    private String role;
 
     public User() {
     }
@@ -41,15 +44,7 @@ public class User implements UserDetails{
         this.email = email;
         this.password = password;
         this.role = role;
-//      this.roles = roles;
-    }
-    
-    public User(String username, String email, String password) {
-        super();
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    }    
 
     public Long getId() {
         return id;
@@ -82,30 +77,14 @@ public class User implements UserDetails{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
 
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
-    }   
-    
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
-    
     public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }
+    }   
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -130,7 +109,6 @@ public class User implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
-    }
-    
+    }  
     
 }

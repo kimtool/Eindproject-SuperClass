@@ -1,5 +1,6 @@
 package com.in28minutes.rest.webservices.WebServices.jwt;
 
+import com.in28minutes.rest.webservices.WebServices.jwt.user.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.impl.DefaultClock;
 import java.io.Serializable;
@@ -88,7 +89,7 @@ public class JwtTokenUtil implements Serializable {
   }
 
   public Boolean validateToken(String token, UserDetails userDetails) {
-    JwtUserDetails user = (JwtUserDetails) userDetails;
+    User user = (User) userDetails;
     final String username = getUsernameFromToken(token);
     return (username.equals(user.getUsername()) && !isTokenExpired(token));
   }

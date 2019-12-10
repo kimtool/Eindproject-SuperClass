@@ -17,7 +17,7 @@ class LoginComponent extends Component {
         }
     }
 
-//handles change for all input fields
+//handles change for all input fields 
     handleChange = (event) => {
         this.setState(
             {
@@ -48,8 +48,8 @@ class LoginComponent extends Component {
                 <div id="register_block">                
                     <div id="fields">
                         <div id="login_padding">
-                            <input type="text" className="field" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required/><br/>
-                            <input type="password" className="field" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
+                            <input type="text" className="form-control" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username" required/><br/>
+                            <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
                         </div>
                     </div>
                     <div className="right_align">
