@@ -3,7 +3,6 @@
 //Promise based HTTP client for the browser and node.js
 import axios from "axios"
 import {API_URL} from "../../Constants"
-import UserDataService from "../api/UserDataService"
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "authenticatedUser"
 
 //When user is succesfully logged in, we create a key to save in session storage
@@ -22,8 +21,8 @@ class AuthenticationService {
         return "Bearer " + token
     } 
 
-    registerSuccessfulLoginForJws(username, token, role){
-        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username, role);
+    registerSuccessfulLoginForJwt(username, token){
+        sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
 //every http request from now on needs to use the token, wich came in response
 //token is created in backend
         this.setupAxiosInterceptors(this.createJwtToken(token))
@@ -53,6 +52,7 @@ class AuthenticationService {
         return user
     }
 
+//make sure every request gets the token
     setupAxiosInterceptors(token){
         axios.interceptors.request.use(
             (config) => {
