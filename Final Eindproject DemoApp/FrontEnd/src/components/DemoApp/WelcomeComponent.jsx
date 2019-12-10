@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import AuthenticationService from "./AuthenticationService";
+const username = AuthenticationService.getLoggedInUsername();
 
 class WelcomeComponent extends Component {
     constructor(props) {
@@ -8,7 +10,7 @@ class WelcomeComponent extends Component {
 
     render(){
         return <div>
-            <h1 className="title">Welcome {this.props.match.params.name}!</h1>
+            <h1 className="title">Welcome {username}!</h1>
             <div className="container">
             </div>
         </div>

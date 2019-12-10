@@ -111,6 +111,9 @@ html{
     border-radius: 0px !important;
     background: rgba(0, 0, 0, .2) !important;
 }
+.inputfield {
+    width: 100%;
+}
 
 @media (min-width: 751px){
     body {

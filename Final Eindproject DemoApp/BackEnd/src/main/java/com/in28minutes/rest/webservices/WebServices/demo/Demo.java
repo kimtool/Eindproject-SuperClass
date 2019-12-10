@@ -19,6 +19,7 @@ public class Demo {
     private Long id;
     
     private String username;
+    private String demoname;
     private String description;
     private Date targetDate;
     private boolean isDone;
@@ -26,10 +27,11 @@ public class Demo {
     protected Demo(){        
     }
 
-    public Demo(Long id, String username, String description, Date targetDate, boolean isDone) {
+    public Demo(Long id, String username, String demoname, String description, Date targetDate, boolean isDone) {
         super();
         this.id = id;
         this.username = username;
+        this.demoname = demoname;
         this.description = description;
         this.targetDate = targetDate;
         this.isDone = isDone;
@@ -74,6 +76,14 @@ public class Demo {
     public void setIsDone(boolean isDone) {
         this.isDone = isDone;
     }
+    public String getDemoname() {
+        return demoname;
+    }
+
+    public void setDemoname(String demoname) {
+        this.demoname = demoname;
+    }
+
 
     @Override
     public int hashCode() {
