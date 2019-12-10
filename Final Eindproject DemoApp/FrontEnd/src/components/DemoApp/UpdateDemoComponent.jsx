@@ -3,11 +3,11 @@ import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import '../../App.css'
 import axios from 'axios';
-import {API_URL} from "../../Constants"
+const API_BASE = "http://localhost:8080"
 
 function submitForm(contentType, data, setResponse) {
     axios({
-        url: `${API_URL}/users/{username}/demos`,
+        url: `${API_BASE}/jpa/users/{username}/demos`,
         method: 'POST',
         data: data,
         headers: {
@@ -19,7 +19,7 @@ function submitForm(contentType, data, setResponse) {
         setResponse("error");
     })
 }
-class AddDemoComponent extends Component {
+class UpdateDemoComponent extends Component {
 
     constructor(props){
         super(props)
@@ -29,6 +29,20 @@ class AddDemoComponent extends Component {
             description: "",
             file : ""
         }
+    }
+
+    componentDidMount(){
+        if(this.state.id===-1){
+            return
+        }
+
+        let username = AuthenticationService.getLoggedInUsername()
+        DemoDataService.retrieveDemo(username, this.state.id)
+            .then(response => this.setState({
+                demoname: response.data.demoname,
+                description: response.data.description,
+                file: response.data.file
+            }))
     }
 
     validate = (values) => {
@@ -117,4 +131,4 @@ class AddDemoComponent extends Component {
     }
 }
 
-export default AddDemoComponent
+export default UpdateDemoComponent

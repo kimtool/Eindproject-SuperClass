@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
+import {Link} from 'react-router-dom'
 import moment from 'moment'
 
 class ListDemosComponent extends Component {
@@ -42,10 +43,6 @@ class ListDemosComponent extends Component {
         this.props.history.push(`/demos/${id}`)
     }
 
-    addDemoClicked = () => {
-        this.props.history.push(`/demos/-1`)
-    }
-
     render(){
         return (
         <div>
@@ -84,7 +81,7 @@ class ListDemosComponent extends Component {
                 </tbody>
             </table>
             <div className="row">
-                <button className="button" onClick={this.addDemoClicked}>Add</button>
+                <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>                
             </div>
             </div>
         </div>
