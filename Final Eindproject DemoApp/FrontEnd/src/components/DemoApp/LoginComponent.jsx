@@ -30,7 +30,7 @@ class LoginComponent extends Component {
 //instead of password we need a token, token comes from response.data
         AuthenticationService.executeJwtAuthenticationService(this.state.username,this.state.password)
         .then((response) => {                
-            AuthenticationService.registerSuccessfulLoginForJws(this.state.username, response.data.token);
+            AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token);
             this.props.history.push(`/welcome/${this.state.username}`)
             }).catch(() => {
                 this.setState({showErrorMessage:true})

@@ -10,6 +10,10 @@ class UserDataService {
         return axios.get(`${API_URL}/members/${id}`)
     }
 
+    retrieveUserByUsername(username){
+        return axios.get(`${API_URL}/members/${username}`)
+    }
+
     deleteUser(id){
         return axios.delete(`${API_URL}/members/${id}`)
     }
