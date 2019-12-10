@@ -1,10 +1,7 @@
 import React, {Component} from 'react'
-
 import UserDataService from "../api/UserDataService"
-import AuthenticationService from './AuthenticationService.js'
+import AuthenticationService from "./AuthenticationService";
 const username = AuthenticationService.getLoggedInUsername();
-
-
 
 class WelcomeComponent extends Component {
 

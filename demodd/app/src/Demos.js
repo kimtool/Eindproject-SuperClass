@@ -63,17 +63,14 @@ function Demos() {
                            onChange={(e) => { setTreackname(e.target.value )}}
                            placeholder="Give a title to your track" />
                 </label><br/>
-
                 <label>
                     File<br/>
                     <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
                 </label><br/>
-
-                {/*<label>*/}
-                {/*    Description<br/>*/}
-                {/*    <textarea value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>*/}
-                {/*</label><br/>*/}
-
+                <label>
+                   Description<br/>
+                   <textarea value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
+                </label><br/>
                 <input type="button" value="Upload as Form" onClick={uploadWithFormData} />
                 {/*<input type="button" value="Upload as JSON" onClick={uploadWithJSON}/>*/}
             </form>

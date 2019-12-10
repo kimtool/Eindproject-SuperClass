@@ -10,6 +10,7 @@ import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
+import UpdateDemoComponent from './UpdateDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
@@ -31,7 +32,8 @@ class DemoApp extends Component {
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/register" component={RegisterComponent}/>
                             <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
-                            <AuthenticatedRoute path="/demos/:id" component={AddDemoComponent}/>
+                            <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>
+                            <AuthenticatedRoute path="/demos/:id" component={UpdateDemoComponent}/>
                             <AuthenticatedRoute path="/demos" component={DemoListComponent}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
                             <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>                       
