@@ -51,12 +51,12 @@ public class FileBoundary {
 
 
     @PostMapping("/users/{username}/demos")
-    public String uploadDemo (@PathVariable String username, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
+    public String uploadDemo (@PathVariable String username, Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
         String status="";
         if (!multipartFile.isEmpty()) {
             try {
-                Demo fileEntity = new Demo(multipartFile.getOriginalFilename(), multipartFile.getContentType(),
-                        multipartFile.getBytes());
+                Demo fileEntity = new Demo(multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
+                        demo.getUsername(), demo.getDescription(), multipartFile.getBytes());
                 fileEntity.setTrackName(trackname);
 
                 fileEntityRepository.save(fileEntity);
