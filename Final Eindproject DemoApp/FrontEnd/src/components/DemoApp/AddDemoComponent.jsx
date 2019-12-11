@@ -29,6 +29,8 @@ function AddDemoComponent() {
         const formData = new FormData();
         formData.append("trackname", trackname);
         formData.append("file", file);
+        formData.append("username", username);
+        formData.append("description", description);
         // formData.append("desc", desc);
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg));
