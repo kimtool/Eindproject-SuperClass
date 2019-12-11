@@ -30,7 +30,7 @@ public class Demo {
     protected Demo(){        
     }
 
-    public Demo(Long id, String fileName, String trackName, String contentType, String username, String description, byte[] data) {
+    public Demo(String fileName, String contentType, String username, String description, byte[] data) {
         super();
         this.fileName = fileName;
         this.trackName = trackName;
