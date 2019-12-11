@@ -52,12 +52,14 @@ class ListDemosComponent extends Component {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>user</th>
-                        <th>description</th>
+                        {/* <th>id</th> */}
+                        <th>User</th>
+                        <th>Title</th>
+                        <th>File</th>
+                        <th>Description</th>
                         {/* <th>Upload Date</th>
-                        <th>Status</th> */}
-                        <th>Update</th>
+                        <th>Status</th>
+                        <th>Update</th> */}
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -67,12 +69,14 @@ class ListDemosComponent extends Component {
                         this.state.demos.map (
                             demo =>                        
                             <tr key={demo.id}>
-                                <td>{demo.id}</td>
+                                {/* <td>{demo.id}</td> */}
                                 <td>{demo.username}</td>
+                                <td>{demo.trackName}</td>
+                                <td>{demo.fileName}</td>
                                 <td>{demo.description}</td>
                                 {/* <td>{moment(demo.targetDate).format("YYYY-MM-DD")}</td>
-                                <td>{demo.isDone.toString()}</td>                                 */}
-                                <td><button className="button_small" onClick={() => this.updateDemoClicked(demo.id)}>Update</button></td>
+                                <td>{demo.isDone.toString()}</td>                                 
+                                <td><button className="button_small" onClick={() => this.updateDemoClicked(demo.id)}>Update</button></td>*/}
                                 <td><button className="button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
                             </tr>
                         )

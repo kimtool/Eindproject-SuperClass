@@ -37,24 +37,24 @@ function AddDemoComponent() {
     }
 
     return (
-        <div className="App">
+        <div className="container">
             <h2>Upload Form</h2>
             <form>
                 <label>
                     File Title<br/>
-                    <input type="text" value={trackname}
+                    <input className="form-control" type="text" value={trackname}
                            onChange={(e) => { setTrackname(e.target.value)}}
                            placeholder="Give a title to your track" />
                 </label><br/>
                 <label>
                     File<br/>
-                    <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
+                    <input className="form-control" type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
                 </label><br/>
                 <label>
                    Description<br/>
-                   <textarea value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                   <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
                 </label><br/>
-                <input type="button" value="Upload as Form" onClick={uploadWithFormData} />
+                <input className="button" type="button" value="save" onClick={uploadWithFormData} />
                 {/*<input type="button" value="Upload as JSON" onClick={uploadWithJSON}/>*/}
             </form>
         </div>
