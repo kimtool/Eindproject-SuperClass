@@ -21,17 +21,17 @@ function submitForm(contentType, data, setResponse) {
 }
 
 function AddDemoComponent() {
-    const [title, setTitle] = useState("");
+    const [trackname, setTrackname] = useState("");
     const [file, setFile] = useState(null);
     const [description, setDescription] = useState("");
 
     function uploadWithFormData(){
         const formData = new FormData();
-        formData.append("title", title);
+        formData.append("trackname", trackname);
         formData.append("file", file);
         // formData.append("desc", desc);
 
-        submitForm("", formData, (msg) => console.log(msg));
+        submitForm("multipart/form-data", formData, (msg) => console.log(msg));
     }
 
     return (
@@ -40,13 +40,13 @@ function AddDemoComponent() {
             <form>
                 <label>
                     File Title<br/>
-                    <input type="text" value={title}
-                           onChange={(e) => { setTitle(e.target.value )}}
+                    <input type="text" value={trackname}
+                           onChange={(e) => { setTrackname(e.target.value )}}
                            placeholder="Give a title to your track" />
                 </label><br/>
                 <label>
                     File<br/>
-                    <input type="file" name="file" onChange={(e) => setFile(e.target.file)} />
+                    <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
                 </label><br/>
                 <label>
                    Description<br/>
