@@ -8,7 +8,7 @@ class WelcomeComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            username: "Kim",
+            username: "",
             password: "",
             role: "",
             wasLoginSuccesful: false,
@@ -57,4 +57,3 @@ class WelcomeComponent extends Component {
 }
 
 export default WelcomeComponent
-s
