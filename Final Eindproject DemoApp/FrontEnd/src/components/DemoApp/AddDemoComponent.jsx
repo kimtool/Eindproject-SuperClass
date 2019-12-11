@@ -29,6 +29,8 @@ function AddDemoComponent() {
         const formData = new FormData();
         formData.append("trackname", trackname);
         formData.append("file", file);
+        formData.append("username", username);
+        formData.append("description", description);
         // formData.append("desc", desc);
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg));
@@ -41,7 +43,7 @@ function AddDemoComponent() {
                 <label>
                     File Title<br/>
                     <input type="text" value={trackname}
-                           onChange={(e) => { setTrackname(e.target.value )}}
+                           onChange={(e) => { setTrackname(e.target.value)}}
                            placeholder="Give a title to your track" />
                 </label><br/>
                 <label>

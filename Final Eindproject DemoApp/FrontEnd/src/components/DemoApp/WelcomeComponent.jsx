@@ -49,7 +49,7 @@ class WelcomeComponent extends Component {
  {/* <h1 className="title">Welcome {this.props.match.params.name}!</h1>  */}
 
             <div className="container">
-            <button className="button" onClick={this.buttonClicked}>BUTTON</button>
+            {/* <button className="button" onClick={this.buttonClicked}>BUTTON</button> */}
                 {/* {AuthenticationService.isUserAdmin() && <div>You are logged in as Admin</div>} */}
             </div>
         </div>
@@ -57,3 +57,4 @@ class WelcomeComponent extends Component {
 }
 
 export default WelcomeComponent
+s
