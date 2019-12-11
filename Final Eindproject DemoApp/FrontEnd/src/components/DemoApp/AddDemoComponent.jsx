@@ -41,7 +41,11 @@ function AddDemoComponent() {
                 <label>
                     File Title<br/>
                     <input type="text" value={trackname}
+<<<<<<< HEAD
                            onChange={(e) => { setTrackname(e.target.value)}}
+=======
+                           onChange={(e) => { setTrackname(e.target.value )}}
+>>>>>>> 350b3d61818498380beef2c21a45b82fdb644ee7
                            placeholder="Give a title to your track" />
                 </label><br/>
                 <label>
