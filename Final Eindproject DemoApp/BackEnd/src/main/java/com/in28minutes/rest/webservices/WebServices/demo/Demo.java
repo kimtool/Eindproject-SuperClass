@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -18,24 +19,32 @@ public class Demo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto generated
     private Long id;
     
+    private String fileName;
+    private String trackName;
+    private String contentType;
     private String username;
-    private String demoname;
     private String description;
-    private Date targetDate;
-    private boolean isDone;
+    @Lob
+    private byte[] data;
     
     protected Demo(){        
     }
 
-    public Demo(Long id, String username, String demoname, String description, Date targetDate, boolean isDone) {
+    public Demo(Long id, String fileName, String trackName, String contentType, String username, String description, byte[] data) {
         super();
-        this.id = id;
+        this.fileName = fileName;
+        this.trackName = trackName;
+        this.contentType = contentType;
         this.username = username;
-        this.demoname = demoname;
         this.description = description;
-        this.targetDate = targetDate;
-        this.isDone = isDone;
-    }    
+        this.data = data;
+    } 
+
+    public Demo(String fileName, String contentType, byte[] data) {
+        this.fileName = fileName;
+        this.contentType = contentType;
+        this.data = data;
+    }   
 
     public Long getId() {
         return id;
@@ -43,6 +52,30 @@ public class Demo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getTrackName() {
+        return trackName;
+    }
+
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
     public String getUsername() {
@@ -61,30 +94,14 @@ public class Demo {
         this.description = description;
     }
 
-    public Date getTargetDate() {
-        return targetDate;
+    public byte[] getData() {
+        return data;
     }
 
-    public void setTargetDate(Date targetDate) {
-        this.targetDate = targetDate;
+    public void setData(byte[] data) {
+        this.data = data;
     }
-
-    public boolean isIsDone() {
-        return isDone;
-    }
-
-    public void setIsDone(boolean isDone) {
-        this.isDone = isDone;
-    }
-    public String getDemoname() {
-        return demoname;
-    }
-
-    public void setDemoname(String demoname) {
-        this.demoname = demoname;
-    }
-
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -107,8 +124,5 @@ public class Demo {
             return false;
         }
         return true;
-    }
-    
-    
-    
+    }   
 }
