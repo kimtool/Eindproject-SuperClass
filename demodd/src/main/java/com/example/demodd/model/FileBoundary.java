@@ -15,7 +15,6 @@ import java.net.URI;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RestController
-@RequestMapping("/api/files")
 @CrossOrigin(origins = "http://localhost:4200")
 public class FileBoundary {
 
@@ -25,7 +24,7 @@ public class FileBoundary {
         this.fileEntityRepository = fileEntityRepository;
     }
 
-    @GetMapping
+    @RequestMapping("/users/{username}/demos")
     public ResponseEntity<byte[]> getRandomFile() {
 
         long amountOfFiles = fileEntityRepository.count();
@@ -50,8 +49,8 @@ public class FileBoundary {
         return new ResponseEntity<>(fileEntity.getData(), header, HttpStatus.OK);
     }
 
-    @PostMapping
-    public String uploadDemo (@NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
+    @PostMapping("/users/{username}/demos")
+    public String uploadDemo (@PathVariable String username, @RequestBody Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
         String status="";
         if (!multipartFile.isEmpty()) {
             try {
