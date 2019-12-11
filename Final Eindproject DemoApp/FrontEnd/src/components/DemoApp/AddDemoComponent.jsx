@@ -31,7 +31,7 @@ function AddDemoComponent() {
         formData.append("file", file);
         // formData.append("desc", desc);
 
-        submitForm("multipart/form-data", formData, (msg) => console.log(msg));
+        submitForm("", formData, (msg) => console.log(msg));
     }
 
     return (
@@ -46,7 +46,7 @@ function AddDemoComponent() {
                 </label><br/>
                 <label>
                     File<br/>
-                    <input type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
+                    <input type="file" name="file" onChange={(e) => setFile(e.target.file)} />
                 </label><br/>
                 <label>
                    Description<br/>
