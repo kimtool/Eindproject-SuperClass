@@ -5,29 +5,29 @@ const username = AuthenticationService.getLoggedInUsername();
 
 class WelcomeComponent extends Component {
 
-    constructor(props){
-        super(props)
-        this.state = {
-            username: "",
-            password: "",
-            role: "",
-            wasLoginSuccesful: false,
-            showErrorMessage: false
-        }
-    }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         username: "",
+    //         password: "",
+    //         role: "",
+    //         wasLoginSuccesful: false,
+    //         showErrorMessage: false
+    //     }
+    // }
 
-    getUserRole(username){
-        UserDataService.retrieveUserByUsername(username)
-        .then(response => this.setState({
-            role: response.data.role
-        }))
-        return this.state.role;
-    }
+    // getUserRole(username){
+    //     UserDataService.retrieveUserByUsername(username)
+    //     .then(response => this.setState({
+    //         role: response.data.role
+    //     }))
+    //     return this.state.role;
+    // }
 
-    buttonClicked = () => {
-        this.getUserRole(this.state.username); 
-        console.log(this.state.role)
-    }
+    // buttonClicked = () => {
+    //     this.getUserRole(this.state.username); 
+    //     console.log(this.state.role)
+    // }
 
     loginClicked = () => {
         //instead of password we need a token, token comes from response.data
@@ -57,4 +57,3 @@ class WelcomeComponent extends Component {
 }
 
 export default WelcomeComponent
-s
