@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
+import { useHistory } from "react-router-dom";
 import '../../App.css'
 import axios from 'axios';
 import {API_URL} from "../../Constants"
 import AuthenticationService from "./AuthenticationService";
 const username = AuthenticationService.getLoggedInUsername();
 
-function submitForm(contentType, data, setResponse) {
+function AddDemoComponent() {
+
+    let history = useHistory();
+
+function submitForm(contentType, data, setResponse) {    
     axios({
         url: `${API_URL}/users/${username}/demos`,
         method: 'POST',
@@ -15,19 +20,19 @@ function submitForm(contentType, data, setResponse) {
         }
     }).then((response) => {
         setResponse(response.data);
+        history.push("/demos")  
     }).catch((error) => {
         setResponse("error");
     })
-}
+}    
 
-function AddDemoComponent() {
     const [trackname, setTrackname] = useState("");
     const [file, setFile] = useState(null);
     const [description, setDescription] = useState("");
 
     function uploadWithFormData(){
         const fi = file.type;
-             if(fi == "audio/mp3"){
+             if(fi === "audio/mp3"){
                  console.log("het is " + fi);
         const formData = new FormData();
         formData.append("trackname", trackname);
@@ -36,7 +41,7 @@ function AddDemoComponent() {
         formData.append("description", description);
         // formData.append("desc", desc);
 
-        submitForm("multipart/form-data", formData, (msg) => console.log(msg));
+        submitForm("multipart/form-data", formData, (msg) => console.log(msg))       
              }else{
                  //hier kom de fout melding
              }
