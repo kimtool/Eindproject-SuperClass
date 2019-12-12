@@ -14,7 +14,7 @@ import javax.persistence.Lob;
 
 @Entity
 public class Demo {
-    
+     
     @Id         //any entity needs primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto generated
     private Long id;
@@ -30,7 +30,7 @@ public class Demo {
     protected Demo(){        
     }
 
-    public Demo(Long id, String fileName, String trackName, String contentType, String username, String description, byte[] data) {
+    public Demo(String fileName, String contentType, String username, String description, byte[] data) {
         super();
         this.fileName = fileName;
         this.trackName = trackName;
