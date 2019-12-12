@@ -43,6 +43,7 @@ function submitForm(contentType, data, setResponse) {
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg))       
              }else{
+                alert("Please choose a mp3 file.");
                  //hier kom de fout melding
              }
     }
