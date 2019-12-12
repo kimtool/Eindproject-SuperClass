@@ -52,7 +52,7 @@ public class DemoController {
 
     //Create a new Demo
     @PostMapping("/users/{username}/demos")
-    public String uploadDemo (@PathVariable String username, Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
+    public ResponseEntity<String> uploadDemo (@PathVariable String username, Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
         String status="";
         if (!multipartFile.isEmpty()) {
             try {
@@ -67,7 +67,7 @@ public class DemoController {
                 status = status +  "Failed to upload " + multipartFile.getOriginalFilename()+ " " + e.getMessage();
             }
         }
-        return status;
+        return ResponseEntity.ok(status);
     }
     
 }
