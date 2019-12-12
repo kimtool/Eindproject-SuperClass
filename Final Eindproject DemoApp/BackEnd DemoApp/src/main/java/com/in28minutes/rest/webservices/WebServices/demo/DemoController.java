@@ -1,15 +1,12 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
-import java.io.InputStream;
-import java.net.URI;
 import java.util.List;
-import java.util.logging.Logger;
+import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  *
@@ -20,28 +17,25 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @CrossOrigin(origins="http://localhost:4200")
 public class DemoController {   
     
-    public DemoController(DemoJpaRespository fileEntityRepository){this.demoJpaRespository = fileEntityRepository; }
+    private final DemoJpaRespository demoRepository;
     
-    private static final Logger logger = Logger.getLogger(DemoController.class.getName());
-    
-    @Autowired
-    private DemoJpaRespository demoJpaRespository;
+    public DemoController(DemoJpaRespository fileEntityRepository){this.demoRepository = fileEntityRepository; }
     
     @GetMapping("/users/{username}/demos")
     public List<Demo> getAllDemos(@PathVariable String username){
-        return demoJpaRespository.findByUsername(username);
+        return demoRepository.findByUsername(username);
         //return demoService.findAll();
     }    
     @GetMapping("/users/{username}/demos/{id}")
     public Demo getDemo(@PathVariable String username, @PathVariable long id){
-        return demoJpaRespository.findById(id).get();
+        return demoRepository.findById(id).get();
         //return demoService.findById(id);
     } 
     
     //DELETE /users/{username}/demos/{id}
     @DeleteMapping("/users/{username}/demos/{id}")
     public ResponseEntity<Void> deleteDemo(@PathVariable String username, @PathVariable long id){
-        demoJpaRespository.deleteById(id);
+        demoRepository.deleteById(id);
         
         return ResponseEntity.noContent().build();           
     }
@@ -52,49 +46,28 @@ public class DemoController {
             @PathVariable String username, 
             @PathVariable long id, @RequestBody Demo demo){
         demo.setUsername(username);
-        Demo demoUpdated = demoJpaRespository.save(demo);
+        Demo demoUpdated = demoRepository.save(demo);
         return new ResponseEntity<Demo>(demo, HttpStatus.OK); //gives more options in the future if you want to return other statusses
     }
-    
-//    @PutMapping("/users/{username}/demos/{id}")
-//    public Demo updateDemo(@PathVariable String username, @PathVariable long id, @RequestBody Demo demo){
-//        Demo demoUpdated = demoService.save(demo);
-//        return demoUpdated;
-//    }
 
     //Create a new Demo
-//    @PostMapping("/users/{username}/demos")
-//    public ResponseEntity<Void> createDemo(
-//            @PathVariable String username, @RequestBody Demo demo){ 
-//    
-//    //when saving demo details, details contain username. Set username into demo
-//        demo.setUsername(username);
-//        Demo createdDemo = demoJpaRespository.save(demo);
-//        
-//        //Location
-//        ///users/{username}/demos{id}
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-//                .path("/{id}").buildAndExpand(createdDemo.getId()).toUri();
-//        return ResponseEntity.created(uri).build();
-//    }  
-    
-//    @PostMapping("/users/{username}/demos")
-//    public ResponseEntity<String> uploadData(@PathVariable String username, @RequestBody Demo demo, MultipartFile file) throws Exception {
-//        if (file == null) {
-//            throw new RuntimeException("You must select the a file for uploading");
-//        }
-//        InputStream inputStream = file.getInputStream();
-//        String originalName = file.getOriginalFilename();
-//        String name = file.getName();
-//        String contentType = file.getContentType();
-//        long size = file.getSize();
-//        logger.info("inputStream: " + inputStream);
-//        logger.info("originalName: " + originalName);
-//        logger.info("name: " + name);
-//        logger.info("contentType: " + contentType);
-//        logger.info("size: " + size);
-//        // Do processing with uploaded file data in Service layer
-//        return new ResponseEntity<String>(originalName, HttpStatus.OK);
-//    }
+    @PostMapping("/users/{username}/demos")
+    public String uploadDemo (@PathVariable String username, Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
+        String status="";
+        if (!multipartFile.isEmpty()) {
+            try {
+                Demo file = new Demo(multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
+                        demo.getUsername(), demo.getDescription(), multipartFile.getBytes());
+                file.setTrackName(trackname);
+
+                demoRepository.save(file);
+
+                status = status +  " Successfully uploaded file=" + multipartFile.getOriginalFilename();
+            } catch (Exception e) {
+                status = status +  "Failed to upload " + multipartFile.getOriginalFilename()+ " " + e.getMessage();
+            }
+        }
+        return status;
+    }
     
 }
