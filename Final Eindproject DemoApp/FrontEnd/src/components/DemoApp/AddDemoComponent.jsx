@@ -26,6 +26,9 @@ function AddDemoComponent() {
     const [description, setDescription] = useState("");
 
     function uploadWithFormData(){
+        const fi = file.type;
+             if(fi == "audio/mp3"){
+                 console.log("het is " + fi);
         const formData = new FormData();
         formData.append("trackname", trackname);
         formData.append("file", file);
@@ -34,6 +37,9 @@ function AddDemoComponent() {
         // formData.append("desc", desc);
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg));
+             }else{
+                 //hier kom de fout melding
+             }
     }
 
     return (
