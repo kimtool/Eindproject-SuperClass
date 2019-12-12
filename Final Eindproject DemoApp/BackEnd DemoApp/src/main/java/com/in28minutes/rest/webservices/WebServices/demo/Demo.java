@@ -14,7 +14,7 @@ import javax.persistence.Lob;
 
 @Entity
 public class Demo {
-    
+     
     @Id         //any entity needs primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto generated
     private Long id;
