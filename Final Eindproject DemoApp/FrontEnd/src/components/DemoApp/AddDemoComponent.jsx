@@ -10,7 +10,6 @@ function AddDemoComponent() {
 
     let history = useHistory();
 
-
 function submitForm(contentType, data, setResponse) {    
     axios({
         url: `${API_URL}/users/${username}/demos`,
@@ -44,10 +43,11 @@ function submitForm(contentType, data, setResponse) {
         // formData.append("desc", desc);
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg))       
-             }else{
-                 //hier kom de fout melding
+             }else{    
+               alert("Please choose a mp3 file.");
+               //hier kom de fout melding
              }
-    }
+
     function inputChanged(e){
         setFile(e.target.files[0]);
         setFileInput("Demo succesfully selected!");
