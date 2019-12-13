@@ -17,7 +17,6 @@ class ListDemosComponent extends Component {
 
     // Base64 string data
 
-
     componentDidMount() { 
         this.refreshDemos();
     }    
@@ -47,16 +46,16 @@ class ListDemosComponent extends Component {
 
     render(){
         return (
-        <div>
-            
+        <div>            
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
             <h1 className="title">DEMO'S</h1>
+            <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>  
             <div className="container">            
             <table className="table">
                 <thead>
                     <tr>
                         {/* <th>id</th> */}
-                        <th>Data</th>
+                        <th>File</th>
                         <th>User</th>
                         <th>Title</th>
                         {/* <th>File</th> */}
@@ -92,9 +91,7 @@ class ListDemosComponent extends Component {
                         )
                     }
                 </tbody>
-            </table>
-                <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>                
-            
+            </table>            
             </div>
         </div>
         )
