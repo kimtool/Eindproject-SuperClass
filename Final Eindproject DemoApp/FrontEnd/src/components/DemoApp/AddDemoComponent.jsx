@@ -29,6 +29,7 @@ function submitForm(contentType, data, setResponse) {
     const [trackname, setTrackname] = useState("");
     const [file, setFile] = useState(null);
     const [description, setDescription] = useState("");
+    const [fileInput, setFileInput] = useState("Choose Demo");
 
     function uploadWithFormData(){
         const fi = file.type;
@@ -42,32 +43,39 @@ function submitForm(contentType, data, setResponse) {
         // formData.append("desc", desc);
 
         submitForm("multipart/form-data", formData, (msg) => console.log(msg))       
-             }else{
-                alert("Please choose a mp3 file.");
-                 //hier kom de fout melding
+             }else{    
+               alert("Please choose a mp3 file.");
+               //hier kom de fout melding
              }
+
+    function inputChanged(e){
+        setFile(e.target.files[0]);
+        setFileInput("Demo succesfully selected!");
     }
 
     return (
-        <div className="container">
-            <h2>Upload Form</h2>
-            <form>
-                <label>
-                    File Title<br/>
+        <div>
+            <h2 className="title">Upload Form</h2>
+            <form id="register_block">
+            <div id="fields">
+                <label >
                     <input className="form-control" type="text" value={trackname}
                            onChange={(e) => { setTrackname(e.target.value)}}
-                           placeholder="Give a title to your track" />
-                </label><br/>
-                <label>
-                    File<br/>
-                    <input className="form-control" type="file" name="file" onChange={(e) => setFile(e.target.files[0])} />
-                </label><br/>
-                <label>
-                   Description<br/>
-                   <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
-                </label><br/>
+                           placeholder="Title" style={{width:"400px"}}/>                    
+                </label>
+                <div className="custom-file">
+                    <input type="file" className="custom-file-input" name="file" onChange={(e) => inputChanged(e)}/>
+                    <label id="inputFile" className="custom-file-label" for="inputGroupFile01">{fileInput}</label>
+                </div>
+                {/* <label>Choose a file</label>
+                    <input className="form-control" type="file" name="file"  onChange={(e) => setFile(e.target.files[0])}/> */}
+                <label style={{marginTop:"24px"}}>
+                   <textarea className="form-control" value={description} onChange={(e) => setDescription(e.target.value)}
+                   placeholder="Description" ></textarea>
+                </label>
                 <input className="button" type="button" value="save" onClick={uploadWithFormData} />
                 {/*<input type="button" value="Upload as JSON" onClick={uploadWithJSON}/>*/}
+                </div>
             </form>
         </div>
     );
