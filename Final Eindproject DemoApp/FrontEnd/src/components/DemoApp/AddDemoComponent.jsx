@@ -65,7 +65,7 @@ function submitForm(contentType, data, setResponse) {
                 </label>
                 <div className="custom-file">
                     <input type="file" className="custom-file-input" name="file" onChange={(e) => inputChanged(e)}/>
-                    <label id="inputFile" className="custom-file-label" for="inputGroupFile01">{fileInput}</label>
+                    <label id="inputFile" className="custom-file-label" htmlFor="inputGroupFile01">{fileInput}</label>
                 </div>
                 {/* <label>Choose a file</label>
                     <input className="form-control" type="file" name="file"  onChange={(e) => setFile(e.target.files[0])}/> */}
