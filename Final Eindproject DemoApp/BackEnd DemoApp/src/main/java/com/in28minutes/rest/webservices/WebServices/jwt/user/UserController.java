@@ -3,6 +3,8 @@ package com.in28minutes.rest.webservices.WebServices.jwt.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import javax.validation.Valid;
+import org.springframework.http.ResponseEntity;
 
 /**
  *
@@ -15,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping ("/members")
     public List<User> getAllUsers() {
@@ -31,11 +36,17 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @PutMapping ("/members/{id}")
-    public void updateUser(@RequestBody User user, @PathVariable Long id) {
-        userService.updateUser(id, user);
+//    @PutMapping ("/members/{id}")
+//    public void updateUser(@RequestBody User user, @PathVariable Long id) {
+//        userService.updateUser(id, user);
+//    }
+    @PutMapping("/members/{id}")
+    ResponseEntity<User> updateUser(@RequestBody User user) {
+        User result = userRepository.save(user);
+        return ResponseEntity.ok().body(result);
     }
-
+    
+    
     @DeleteMapping ("/members/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
