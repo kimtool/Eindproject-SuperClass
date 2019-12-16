@@ -39,6 +39,7 @@ function submitForm(contentType, data, setResponse, username) {
     function uploadWithFormData(){
         const fi = file.type;
              if(fi === "audio/mp3"){
+<<<<<<< HEAD
                 setErrorNoMp3(false);
                 console.log("het is " + fi);
                 const formData = new FormData();
@@ -59,6 +60,21 @@ function submitForm(contentType, data, setResponse, username) {
                 setErrorNoTitle(false)
             }
     }
+=======
+                 console.log("het is " + fi);
+        const formData = new FormData();
+        formData.append("trackname", trackname);
+        formData.append("file", file);
+        formData.append("username", username);
+        formData.append("description", description);
+        // formData.append("desc", desc);
+
+        submitForm("multipart/form-data", formData, (msg) => console.log(msg))       
+             }else{    
+               alert("Please choose a mp3 file.");
+               //hier kom de fout melding
+             }
+>>>>>>> e444689f14260102d929ca524c70ecc2918967f9
 
     function inputChanged(e){
         setFile(e.target.files[0])
