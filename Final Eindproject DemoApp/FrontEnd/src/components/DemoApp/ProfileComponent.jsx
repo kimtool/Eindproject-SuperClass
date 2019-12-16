@@ -8,19 +8,7 @@ import {Link} from "react-router-dom";
 
 // const username = AuthenticationService.getLoggedInUsername();
 
-function handleSubmit(e) {
-    e.preventDefault();
-    const {item} = this.state;
 
-    fetch('/members/'+(item.id), {
-        method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(item),
-    });
-}
 
 class ProfileComponent extends Component {
     emptyItem = {
@@ -59,6 +47,19 @@ class ProfileComponent extends Component {
         this.setState({item});
     }
 
+    async handleSubmit(e) {
+        e.preventDefault();
+        const {item} = this.state;
+
+        await fetch('/members/'+(item.id), {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item),
+        });
+    }
 
     render()
     {
@@ -81,16 +82,18 @@ class ProfileComponent extends Component {
                             <Input type="text" name="email" id="email" value={item.email || ''}
                                    onChange={this.handleChange} autoComplete="address-level1"/>
                         </FormGroup>
+                        {isAdmin &&
                         <FormGroup>
-                        <div className="icon-block">{isAdmin &&
-                        <div className="mb-3">
+                            <div className="icon-block">
+                                <div className="mb-3">
                             <select value={item.role} onChange={this.handleChange}>
                                 <option value="ROLE_USER">User</option>
                                 <option value="ROLE_ADMIN">Admin</option>
                                 <option value="ROLE_BACK">Backoffice</option>
                             </select>
-                        </div>}</div>
-                        </FormGroup>
+                        </div>
+                            </div>
+                        </FormGroup>}
                         <FormGroup>
                             <Button color="primary" type="submit">Save</Button>
                         </FormGroup>
