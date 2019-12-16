@@ -1,4 +1,3 @@
-
 package com.in28minutes.rest.webservices.WebServices.jwt.resource;
 
 import java.io.Serializable;
@@ -16,10 +15,6 @@ public class  JwtTokenRequest implements Serializable {
     private String username;
     private String password;
     
-//    {
-//        "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpbjI4bWludXRlcyIsImV4cCI6MTU3NDMzOTgwMSwiaWF0IjoxNTczNzM1MDAxfQ.7Ei6QXIZc_j7Y6tP_cpl1iopOFG5Zlxs207HJ_o8_VYwUn-i86k_kIJ30za3W0zQcLgem_h01GFtNQMbL2JQ8w"
-//    }
-
     public JwtTokenRequest() {
         super();
     }

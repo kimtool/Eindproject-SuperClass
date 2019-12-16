@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
-import UserDataService from "../api/UserDataService"
+import UserDataService from "./UserDataService";
 import AuthenticationService from "./AuthenticationService";
-const username = AuthenticationService.getLoggedInUsername();
+import Welcome_Image from '../images/afbeeldingen/welcomeBanner7.jpg'
 
 class WelcomeComponent extends Component {
 
     constructor(props){
         super(props)
         this.state = {
-            username: "",
+            username: AuthenticationService.getLoggedInUsername(),
             password: "",
             role: "",
             wasLoginSuccesful: false,
@@ -44,13 +44,10 @@ class WelcomeComponent extends Component {
 
     render(){     
         return <div>
-            <h1 className="title">Welcome {username}!</h1>
-
- {/* <h1 className="title">Welcome {this.props.match.params.name}!</h1>  */}
-
+            <h1 className="title" style={{letterSpacing: "5px"}}>Welcome {this.state.username}!</h1>
+            <img id="welcome-image" alt="" src={Welcome_Image}/>
             <div className="container">
-            {/* <button className="button" onClick={this.buttonClicked}>BUTTON</button> */}
-                {/* {AuthenticationService.isUserAdmin() && <div>You are logged in as Admin</div>} */}
+                
             </div>
         </div>
     }

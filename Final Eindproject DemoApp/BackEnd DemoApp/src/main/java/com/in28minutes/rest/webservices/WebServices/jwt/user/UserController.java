@@ -2,7 +2,6 @@ package com.in28minutes.rest.webservices.WebServices.jwt.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
@@ -21,11 +20,6 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-
-//    @RequestMapping ("/members/{id}")
-//    public User getUser(@PathVariable Long id) {
-//        return userService.getUser(id);
-//    }
     
     @RequestMapping ("/members/{username}")
     public User getUserByName(@PathVariable String username) {

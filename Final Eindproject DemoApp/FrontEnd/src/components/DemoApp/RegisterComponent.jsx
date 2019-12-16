@@ -15,6 +15,7 @@ class RegisterComponent extends Component {
             username: "",
             email: "",
             password: "",
+            passwordConfirm: "",
             role: "",
             showErrorMessage: false
         }
@@ -24,10 +25,20 @@ class RegisterComponent extends Component {
         let errors = {}
         if(!values.username){
             errors.username = "Enter a username"
+        } if(values.username>20){
+            errors.password = "Username must be between 3 - 20 characters"
+        } if(values.username<3){
+            errors.password = "Username must be between 3 - 20 characters"
         } if(!values.email){
             errors.email = "Enter a email"
         } if(!values.password){
             errors.password = "Enter a password"
+        } if(values.password !== values.passwordConfirm){
+            errors.password = "Passwords don't match"
+        } if(values.password>40){
+            errors.password = "Password must be between 8 - 40 characters"
+        } if(values.password<8){
+            errors.password = "Password must be between 8 - 40 characters"
         } //else if(!values.username){
         //     errors.username = "Username already exists"
         // } 
@@ -50,14 +61,14 @@ class RegisterComponent extends Component {
     }
 
     render(){
-        let {username, email, password, showErrorMessage} = this.state
+        let {username, email, password, passwordConfirm, showErrorMessage} = this.state
 
         return <div>
             {/* <h1 className="title">UPLOAD DEMO</h1> */}
             <div>
                 <Formik                     
                     // initialValues={{description: description, targetDate: targetDate}}
-                    initialValues={{username, email, password, showErrorMessage}}
+                    initialValues={{username, email, password, passwordConfirm, showErrorMessage}}
                     onSubmit={this.onSubmit}
                     validateOnChange={false}
                     validateOnBlur={false}
@@ -71,22 +82,15 @@ class RegisterComponent extends Component {
                             <ErrorMessage name="email" component="div" className="alert alert-warning"/>
                             <ErrorMessage name="password" component="div" className="alert alert-warning"/>
                             {this.state.showErrorMessage && <div className="alert alert-warning">Username or Email already exists</div>}                            
-                            <div id="register_block">  
-                                <div id="fields">
-                                    <div id="login_padding">
-                                        <fieldset className="form-group">
-                                            <Field autoComplete="off" className="form-control" type="text" name="username" placeholder="Username"/>
-                                        </fieldset>
-                                        <fieldset className="form-group">
-                                            <Field autoComplete="off" className="form-control" type="email" name="email" placeholder="E-mail"/>
-                                        </fieldset>
-                                        <fieldset className="form-group">
-                                            <Field autoComplete="off" className="form-control" type="password" name="password" placeholder="Password"/>
-                                        </fieldset>
-                                    </div>
+                            <div className="block">  
+                                <div>
+                                    <Field autoComplete="off" className="form-control" type="text" name="username" placeholder="Username" minLength="3" maxLength="20"/>
+                                    <Field autoComplete="off" className="form-control" type="email" name="email" placeholder="E-mail"/>
+                                    <Field className="form-control" type="password" name="password" placeholder="Password" minLength="8" maxLength="40"/>
+                                    <Field className="form-control" type="password" name="passwordConfirm" placeholder="Password Confirm" minLength="8" maxLength="40"/>                                 
                                 </div>
-                                <div className="right_align">                       
-                                    <Link className="menu-icon" to="/login" target="blank" style={{color: "white"}}>Login</Link>
+                                <div className="right_align" style={{textAlign:"right"}}>                       
+                                    <Link className="login_link" to="/login">Login</Link>
                                 </div> 
                             </div>
                             <button className="button" type="submit">Register</button>

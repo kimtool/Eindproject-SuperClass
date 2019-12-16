@@ -8,6 +8,7 @@ import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
 import WelcomeComponent from './WelcomeComponent.jsx'
+import ProfileComponent from './ProfileComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
 import UpdateDemoComponent from './UpdateDemoComponent.jsx'
@@ -24,14 +25,15 @@ class DemoApp extends Component {
                 <Router>
                     <HamburgerMenuComponent/>
                     <HeaderComponent/>      
-                    <main style={{marginTop: "80px"}}>
+                    <main>
 {/* Make sure only one route is used at a time */}
                         <Switch >          
 {/* Route defines wich page has wich url, AuthenticatedRoute can only be taken by authenticated users */}                                  
                             <Route path="/" exact component={LoginComponent}/>
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/register" component={RegisterComponent}/>
-                            <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
+                            <AuthenticatedRoute path="/welcome" component={WelcomeComponent}/>
+                            <AuthenticatedRoute path="/profile" component={ProfileComponent}/>
                             <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>
                             <AuthenticatedRoute path="/demos/:id" component={UpdateDemoComponent}/>
                             <AuthenticatedRoute path="/demos" component={DemoListComponent}/>

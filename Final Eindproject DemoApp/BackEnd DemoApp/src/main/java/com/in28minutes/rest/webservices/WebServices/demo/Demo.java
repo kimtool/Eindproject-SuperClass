@@ -1,11 +1,11 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -17,12 +17,15 @@ public class Demo {
      
     @Id         //any entity needs primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto generated
-    private Long id;
+    private Long id;    
     
     private String fileName;
+    @Size(max = 30)
     private String trackName;
     private String contentType;
+    @Size(max = 30)
     private String username;
+    @Size(max = 255)
     private String description;
     @Lob
     private byte[] data;

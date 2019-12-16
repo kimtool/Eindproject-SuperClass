@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Gebruiker
  */
+
 @Component
 public class JwtUnAuthorizedResponseAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 
