@@ -1,13 +1,26 @@
 import React, {Component} from 'react'
-import AuthenticationService from "./AuthenticationService";
-import Welcome_Image from '../images/afbeeldingen/welcomeBanner7.jpg'
+import AuthenticationService, {USER_NAME_SESSION_ATTRIBUTE_NAME} from "./AuthenticationService";
 import UserDataService from "../api/UserDataService"
 import axios from 'axios'
 import {API_URL} from "../../Constants"
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import {Link} from "react-router-dom";
 
-const username = AuthenticationService.getLoggedInUsername();
+// const username = AuthenticationService.getLoggedInUsername();
 
+function handleSubmit(e) {
+    e.preventDefault();
+    const {item} = this.state;
+
+    fetch('/members/'+(item.id), {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item),
+    });
+}
 
 class ProfileComponent extends Component {
     emptyItem = {
@@ -23,47 +36,70 @@ class ProfileComponent extends Component {
         this.state = {
             item: this.emptyItem
         };
-        // this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     async componentDidMount() {
+        const username = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+        console.log("profile " +username)
         if (username !== 'new') {
             const user = await (await fetch(`${API_URL}/members/${username}`)).json();
             this.setState({item: user});
+            console.log(user)
         }
     }
-    //
-    // constructor(props){
-    //     super(props)
-    //     this.state = {
-    //         username: AuthenticationService.getLoggedInUsername(),
-    //         password: "",
-    //         role: "",
-    //         wasLoginSuccesful: false,
-    //         showErrorMessage: false
-    //     }
-    // }
 
-    render(){
-        const {item} = this.state;
-        console.log(item.role)
-        return <div>
-            <h1 className="title">My profile</h1>
-            <p>your id is {item.id}</p>
-            <p>your id is {item.email}</p>
-            <form>
-                <Label for="email">E-mail</Label>
-                <Input type="text" name="email" id="email" value={item.email || ''}
-                       onChange={this.handleChange} autoComplete="address-level1"/>
-            </form>
-            {/*<h2 className="title" style={{fontSize:"24px"}}>Under construction</h2>*/}
-            {/*<img id="welcome-image" alt="" src={Welcome_Image}/>*/}
-            <div className="container">
-            </div>
-        </div>
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        let item = {...this.state.item};
+        item[name] = value;
+        this.setState({item});
     }
-}
 
+
+    render()
+    {
+        const {item} = this.state;
+        const isAdmin = item.role === 'ROLE_ADMIN';
+        console.log(isAdmin)
+        return (
+            <div className="App">
+                <div className="left">
+                    <h1 className="title">Welcome {item.username}!</h1>
+                </div>
+                <div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormGroup>
+                            <Label for="id">Member id</Label>
+                            <Input type="text" name="id" id="id" value={item.id}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="email">E-mail</Label>
+                            <Input type="text" name="email" id="email" value={item.email || ''}
+                                   onChange={this.handleChange} autoComplete="address-level1"/>
+                        </FormGroup>
+                        <FormGroup>
+                        <div className="icon-block">{isAdmin &&
+                        <div className="mb-3">
+                            <select value={item.role} onChange={this.handleChange}>
+                                <option value="ROLE_USER">User</option>
+                                <option value="ROLE_ADMIN">Admin</option>
+                                <option value="ROLE_BACK">Backoffice</option>
+                            </select>
+                        </div>}</div>
+                        </FormGroup>
+                        <FormGroup>
+                            <Button color="primary" type="submit">Save</Button>
+                        </FormGroup>
+                    </Form>
+                </div>
+            </div>
+        );
+    }
+
+}
 
 export default ProfileComponent
