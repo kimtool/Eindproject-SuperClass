@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import UserDataService from "./UserDataService";
+import UserDataService from '../api/UserDataService.js'
 import AuthenticationService from "./AuthenticationService";
 import Welcome_Image from '../images/afbeeldingen/welcomeBanner7.jpg'
 
