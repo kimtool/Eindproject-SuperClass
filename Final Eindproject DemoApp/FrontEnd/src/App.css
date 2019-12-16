@@ -4,6 +4,15 @@
 }
 html{
     box-sizing: border-box;
+    height: 100%;
+}
+body{
+    top: 0px;
+    height: 90%;
+    z-index: 1;
+}
+main{
+    margin-top: 60px;    
 }
 *, *:before, *:after{
     box-sizing: inherit;
@@ -12,69 +21,103 @@ html{
     background-color: black;
     background: url('./components/images/afbeeldingen/topbanner50.jpg') no-repeat center center fixed;
     background-size: cover;
-    font-family: europa, Segoe UI;
+    font-family: europa, sans-serif;
+    font-style: normal;
+    font-weight: 300;
     font-size: 14px;
     color: rgba(255,255,255,1);
 }
 #Hexagon_logo_vector {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-    width: 48px;   
+    position: absolute;
+    left: 50%;
+    margin-left: -34px;
+    margin-top: 70px;
+    width: 68px;    
 }
 .title{
     text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 45px;
+    line-height: 1em;
+    letter-spacing: 7px;
+    text-transform: uppercase;
 }
-#register_block {
+.block {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 290px;
-    height: 320px;
+    width: 380px;
+    height: 420px;
+    padding-top: 140px;
     background-color: rgba(255,255,255,0);
 }
-#fields {
-    padding-top: 30px;
+.form-control{
+    color:white !important;
+    border-color:white !important;
+    border-radius: 0px !important;
+    background: rgba(0, 0, 0, .2) !important;
+    margin-top: 25px !important;
+    border-width: 1.2px !important;
+    width: 380px !important;
 }
-#reset{
-    font-size: 20px;
-    text-align: center;
+.form-control::placeholder {
+    color: rgba(255,255,255,1) !important;
 }
-#send_email{
-    margin-top: 35px;
-    text-align: center;
+.form-control:focus {
+    box-shadow: 0 0 5px rgb(255, 153, 0) !important;
+    border-color: rgba(255, 153, 0, .8) !important;
 }
-#service_agreement {
-    margin-top: 10px;
+label{
+    margin: 0px !important;
 }
-#login {
-    text-align: center;
-    margin-top: 40px;
+.custom-file-label{
+    color:white !important;
+    border-radius: 0px !important;
+    background: rgba(0, 0, 0, .2) !important;
+    border-width: 1.2px !important;
+    border-color: white !important;
 }
-#login_padding{
-    padding-top: 49px;
+.custom-file{
+    margin-top: 25px !important;
+}
+.custom-file-input:hover {
+    cursor: pointer !important;
 }
 .right_align {
     text-align: right;
-    margin-top: 5px;
+    margin-top: 10px;
+}
+.login_link {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: white !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
 }
 .button {
     display: block; 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
     margin-top: 50px;
-    width: 136px;
-    height: 58px;
-    text-align: center;      
-    font-size: 17px;
+    margin-bottom: 50px;
+    width: 143px;
+    height: 61px;
+    font-size: 20px;
+    text-align: center;
     color: rgba(255,255,255,1);
+    background: rgba(255,255,255,0);
+    border-color: rgba(255,255,255,1);
     border-style: solid;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
-.table_field{
-    padding-top: 50px;
+.button:hover{
+    color: rgb(0, 0, 0);
+    background: rgba(255,255,255,1);
+    font-weight: 600;
 }
 .button_small {
     display: block; 
@@ -82,9 +125,23 @@ html{
     height: 35px;
     text-align: center;
     color: rgba(255,255,255,1);
+    background: rgba(255,255,255,0);
+    border-color: rgba(255,255,255,1);
     border-style: solid;
     border-width: 1.5px;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+.button_small:hover{
+    color: rgb(0, 0, 0);
+    background: rgba(255,255,255,1);
+    font-weight: 600;
+}
+.button:active{
+    color: rgb(0, 0, 0);
+    background: rgba(255,255,255,1);
+    font-weight: 600;
 }
 .alert{
     color: rgb(255, 153, 0) !important;
@@ -96,100 +153,92 @@ html{
     font-size: 16px;
     border-style: solid none solid none !important;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
-.form-control{
-    color:white !important;
-    border-radius: 0px !important;
-    background: rgba(0, 0, 0, .2) !important;
-    margin-top: 12px !important;
-    border-width: 1.2px !important;
-    width: 290px !important;
+#welcome-image{    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 1012px;
 }
-.custom-file-label{
-    color:white !important;
-    border-radius: 0px !important;
-    background: rgba(0, 0, 0, .2) !important;
-    margin-top: 12px !important;
-    margin-bottom: 12px !important;
-    border-width: 1.2px !important;
+.demo-mobile{
+    display: none;
 }
-.form-control::placeholder {
-    color: rgba(255,255,255,1) !important;
+.demo-web{
+    display: block;
 }
-.inputfield {
-    width: 100%;
-}
-.upload-btn-wrapper {
-    cursor: pointer !important;
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-  
-  .btn {    
-    cursor: pointer !important;
-    border: 2px solid gray;
-    color: gray;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .upload-btn-wrapper:hover{
-    
-  }
-  
-  .upload-btn-wrapper input[type=file] {
-    cursor: pointer !important;
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
 
-@media (min-width: 751px){
-    body {
-        font-size: 15px;
+@media (max-width: 750px){
+    main{
+        margin-top: 0px;
     }
-    #hexagonlogo {        
-        margin-top: 25px;
-        width: 216px;
+    .title{
+        font-size: 30px;
+        letter-spacing: 2px;
     }
-    #Hexagon_logo_Don_Diablo_vector {        
-        margin-top: 80px;
-        width: 68px;   
+    #Hexagon_logo_vector {  
+        width: 48px;
+        margin-top: 60px;
+        margin-left: -24px;
     }
-    #register_block {
-        width: 380px;
-        height: 380px;
-    }
-    #fields {
-        padding-top: 60px;
-    }
-    .field {    
-        width: 380px;
-        height: 26px;
-        font-size: 17px;
+    .block {
+        margin-top: -50px;
+        width: 290px;
+        height: 400px;
     }
     .form-control{        
-        width: 380px !important;
-    }
-    #reset{
-        font-size: 30px;
-    }
-    #send_email{
-        padding-top: 4px;
-    }
-    #login {
-        padding-top: 20px;
+        width: 290px !important;
     }
     .button {
-        width: 143px;
-        height: 61px;
-        padding-bottom: 5px;
-        font-size: 20px;
+        width: 136px;
+        height: 58px;             
+        font-size: 17px;
     }
-
+    .button_small {
+        margin: 0px !important;
+        display: inline-block !important;
+        width: 75px;
+        height: 35px;
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+    .alert{
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    #welcome-image{    
+        margin-top: 120px;
+    }
+    .demo-mobile{
+        display: block;
+        padding: 0px !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%;
+    }
+    tbody{
+        max-width: 100% !important;
+    }
+    table{
+        max-width: 100% !important;
+    }
+    .row1{
+        max-width: 100% !important;
+    }
+    .row2{
+        display: none;
+        width: 100% !important;
+    }
+    audio{
+        display: inline-block;
+        max-width: 230px !important;
+        height: 35px !important;
+        margin: 0px !important;
+    }
+    .demo-web{
+        display: none;
+    }
+    
 }

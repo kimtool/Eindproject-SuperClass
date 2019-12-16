@@ -1,6 +1,4 @@
 import React, {Component, useState} from 'react'
-import DemoDataService from '../api/DemoDataService.js'
-import AuthenticationService from './AuthenticationService.js'
 import '../../App.css'
 import axios from 'axios';
 import {API_URL} from "../../Constants"

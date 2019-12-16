@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  *
  * @author Gebruiker
  */
+
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfigurationBasicAuth extends WebSecurityConfigurerAdapter{

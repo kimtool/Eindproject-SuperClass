@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Gebruiker
  */
+
 @Component
 //Token processing. Helps creating tokens and getting details from it: user details/expiration date ect
 public class JwtTokenUtil implements Serializable {

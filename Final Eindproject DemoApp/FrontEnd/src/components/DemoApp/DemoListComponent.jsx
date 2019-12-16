@@ -7,10 +7,7 @@ class ListDemosComponent extends Component {
     constructor(props){             //gets called when component is being initialized
         super(props)
         this.state = {
-            demos: 
-            [               //better not to do initial API call directly in the constructor, otherwise state will not be initialized until API call is completed
-            //{id:1, description:"Learn React", done:false, targetDate:new Date()}, 
-            ], 
+            demos:[], 
             message : null
         }
     }
@@ -46,11 +43,11 @@ class ListDemosComponent extends Component {
 
     render(){
         return (
-        <div>            
+        <div>                       
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
             <h1 className="title">DEMO'S</h1>
             <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>  
-            <div className="container">            
+            <div className="container demo-web">            
             <table className="table">
                 <thead>
                     <tr>
@@ -74,8 +71,8 @@ class ListDemosComponent extends Component {
                             <tr key={demo.id}>
                                 {/* <td>{demo.id}</td> */}
                                 <td>
-                                    <audio controls>  
-                                        <source src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
+                                    <audio style={{borderRadius:"0px"}} className="audio" controls>  
+                                        <source style={{borderRadius:"0px"}} src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
                                         Your browser does not support the audio element.
                                     </audio>
                                 </td>
@@ -93,7 +90,39 @@ class ListDemosComponent extends Component {
                 </tbody>
             </table>            
             </div>
-        </div>
+            <div className="container demo-mobile">
+            <table className="table" style={{maxWidth:"100%"}}>
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <th>File</th>
+                    <th>Delete</th>
+                    {
+                        this.state.demos.map(
+                            demo =>                        
+                            <tr key={demo.id}>
+                                <div className="row1">
+                                    <td>
+                                        <audio className="audio" controls>  
+                                            <source src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td><button className="button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
+                                </div>
+                                <div className="row2">
+                                    <td>{demo.username}</td>
+                                    <td>{demo.trackName}</td>
+                                    <td>{demo.description}</td>
+                                </div>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>      
+            </div>
+        </div> 
         )
     }
 }

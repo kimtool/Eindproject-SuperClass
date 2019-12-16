@@ -23,6 +23,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  *
  * @author Gebruiker
  */
+
 @Component
 //authorizes all requests 
 public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFilter {
@@ -73,7 +74,7 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
 //checks if user is valid, and token is valid
         String username = null;
         String jwtToken = null;
-        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
+        if (requestTokenHeader != null) {
             jwtToken = requestTokenHeader.substring(7);
             try {
                 username = jwtTokenUtil.getUsernameFromToken(jwtToken);
