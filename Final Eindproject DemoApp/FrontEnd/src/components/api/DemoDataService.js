@@ -2,8 +2,8 @@ import axios from 'axios'
 import {API_URL} from "../../Constants"
 
 class DemoDataService {
-    retrieveAllDemos(name){
-        return axios.get(`${API_URL}/users/${name}/demos`)
+    retrieveAllDemos(){
+        return axios.get(`${API_URL}/alldemos`)
     }
 
     retrieveDemo(name, id){
