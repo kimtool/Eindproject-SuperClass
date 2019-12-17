@@ -30,7 +30,7 @@ class AuthenticationService {
 
 //token is deleted when user loggs out
     logout(){
-        sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+        sessionStorage.clear();
     }
 
 //check if user is logged in to use it througtout the application
