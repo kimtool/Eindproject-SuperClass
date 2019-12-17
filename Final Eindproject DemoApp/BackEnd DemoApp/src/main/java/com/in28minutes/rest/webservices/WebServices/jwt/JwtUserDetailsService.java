@@ -1,6 +1,7 @@
 package com.in28minutes.rest.webservices.WebServices.jwt;
 
 import com.in28minutes.rest.webservices.WebServices.jwt.user.UserRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,8 +20,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) {
         UserDetails user = userRepository.findByUsername(username);
-        if (user == null) throw new UsernameNotFoundException(username);
-//        }       
+        if (user == null) throw new UsernameNotFoundException(username); 
         return user;
     }
 }

@@ -1,11 +1,18 @@
 package com.in28minutes.rest.webservices.WebServices.jwt.user;
 
+import com.in28minutes.rest.webservices.WebServices.demo.Demo;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -28,6 +35,12 @@ public class User implements UserDetails{
     private String email;
     private String password;
     private String role;
+    
+    @OneToMany(
+            mappedBy = "User",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    private List<Demo> demos = new ArrayList<>();
 
     public User() {
     }
@@ -79,6 +92,14 @@ public class User implements UserDetails{
     public void setRole(String role) {
         this.role = role;
     }   
+
+    public List<Demo> getDemos() {
+        return demos;
+    }
+
+    public void setDemos(List<Demo> demos) {
+        this.demos = demos;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
