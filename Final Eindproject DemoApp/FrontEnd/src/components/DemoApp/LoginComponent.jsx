@@ -52,7 +52,6 @@ class LoginComponent extends Component {
                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
                     </div>
                     <div className="right_align">
-                        {/* <a href="ForgotPasswordPage.html" target="blank" style={{color: "white"}}>Forgot password?</a><br/> */}
                         <Link className="login_link" to="/register">Register</Link>
                     </div>              
                 </div> 

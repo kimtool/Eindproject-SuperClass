@@ -9,8 +9,7 @@ class WelcomeComponent extends Component {
         return <div>
             <h1 className="title" style={{letterSpacing: "5px"}}>Welcome {username}!</h1>
             <img id="welcome-image" alt="" src={Welcome_Image}/>
-            <div className="container">
-                
+            <div className="container">                
             </div>
         </div>
     }

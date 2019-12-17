@@ -114,29 +114,17 @@ label{
     letter-spacing: 2px;
     transition: 0.3s;
 }
+.button_small { 
+    width: 82px;
+    height: 35px;
+    border-width: 1.5px;
+    margin: 0px;
+    font-size: 14px;
+}
 .button:hover{
     color: rgb(0, 0, 0);
     background: rgba(255,255,255,1);
-    font-weight: 600;
-}
-.button_small {
-    display: block; 
-    width: 82px;
-    height: 35px;
-    text-align: center;
-    color: rgba(255,255,255,1);
-    background: rgba(255,255,255,0);
-    border-color: rgba(255,255,255,1);
-    border-style: solid;
-    border-width: 1.5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.3s;
-}
-.button_small:hover{
-    color: rgb(0, 0, 0);
-    background: rgba(255,255,255,1);
-    font-weight: 600;
+    font-weight: 600;    
 }
 .button:active{
     color: rgb(0, 0, 0);
@@ -163,11 +151,16 @@ label{
     width: 90%;
     max-width: 1012px;
 }
-.demo-mobile{
-    display: none;
-}
 .demo-web{
     display: block;
+}
+audio{
+    display: inline-block;
+    height: 40px !important;
+    margin: 0px !important;
+}
+.demo-mobile{
+    display: none;
 }
 
 @media (max-width: 750px){
@@ -214,26 +207,21 @@ label{
     .demo-mobile{
         display: block;
         padding: 0px !important;
-        margin-left: 10%;
-        margin-right: 10%;
-        max-width: 80%;
+        margin-left: 5%;
+        margin-right: 5%;
+        max-width: 90%;
     }
-    tbody{
-        max-width: 100% !important;
+    .audio_desc{
+        display: flex;
+        margin: 0px;
     }
-    table{
-        max-width: 100% !important;
-    }
-    .row1{
-        max-width: 100% !important;
-    }
-    .row2{
-        display: none;
-        width: 100% !important;
+    .demo_li{
+        list-style-type: none;
+        margin-left: 50px;
     }
     audio{
         display: inline-block;
-        max-width: 230px !important;
+        max-width: 100% !important;
         height: 35px !important;
         margin: 0px !important;
     }

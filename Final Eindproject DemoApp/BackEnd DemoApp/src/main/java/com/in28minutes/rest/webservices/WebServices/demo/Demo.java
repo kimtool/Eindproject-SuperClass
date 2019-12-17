@@ -1,10 +1,14 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
+import com.in28minutes.rest.webservices.WebServices.jwt.user.User;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 /**
@@ -23,22 +27,26 @@ public class Demo {
     @Size(max = 30)
     private String trackName;
     private String contentType;
-    @Size(max = 30)
-    private String username;
+//    @Size(max = 30)
+//    private String username;
     @Size(max = 255)
     private String description;
     @Lob
     private byte[] data;
     
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "username", nullable = false)
+    private User user;
+    
     protected Demo(){        
     }
 
-    public Demo(String fileName, String contentType, String username, String description, byte[] data) {
+    public Demo(String fileName, String contentType, User user, String description, byte[] data) {
         super();
         this.fileName = fileName;
         this.trackName = trackName;
         this.contentType = contentType;
-        this.username = username;
+        this.user = user;
         this.description = description;
         this.data = data;
     } 
@@ -81,13 +89,21 @@ public class Demo {
         this.contentType = contentType;
     }
 
-    public String getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(User user) {
+        this.user = user;
     }
+
+    public String getUsername() {
+        return user.getUsername();
+    }
+    
+//    public void setUsername(String username) {        
+//        this.username = user.getUsername();
+//    }
 
     public String getDescription() {
         return description;
