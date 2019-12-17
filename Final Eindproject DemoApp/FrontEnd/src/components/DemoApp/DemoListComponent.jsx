@@ -83,7 +83,7 @@ class ListDemosComponent extends Component {
                                 {/* <td>{moment(demo.targetDate).format("YYYY-MM-DD")}</td>
                                 <td>{demo.isDone.toString()}</td>                                 
                                 <td><button className="button_small" onClick={() => this.updateDemoClicked(demo.id)}>Update</button></td>*/}
-                                <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
+                                <td><button className="button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
                             </tr>
                         )
                     }
@@ -93,27 +93,29 @@ class ListDemosComponent extends Component {
             <div className="container demo-mobile">
             <table className="table" style={{maxWidth:"100%"}}>
                 <thead>
-                    <tr>
-                        <th>File</th>
-                        <th>Delete</th>
-                    </tr>
+                    
                 </thead>
-                <tbody>                    
+                <tbody>
+                    <th>File</th>
+                    <th>Delete</th>
                     {
                         this.state.demos.map(
                             demo =>                        
                             <tr key={demo.id}>
-                                <td>
-                                    <audio className="audio" controls>  
-                                        <source src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <ul className="audio_desc">
-                                        <li className="demo_li" style={{marginLeft:"10px"}}>{demo.username}</li>
-                                        <li className="demo_li" style={{marginLeft:"60px"}}>{demo.trackName}</li>
-                                    </ul>
-                                </td>
-                                <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>                                
+                                <div className="row1">
+                                    <td>
+                                        <audio className="audio" controls>  
+                                            <source src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
+                                            Your browser does not support the audio element.
+                                        </audio>
+                                    </td>
+                                    <td><button className="button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
+                                </div>
+                                <div className="row2">
+                                    <td>{demo.username}</td>
+                                    <td>{demo.trackName}</td>
+                                    <td>{demo.description}</td>
+                                </div>
                             </tr>
                         )
                     }

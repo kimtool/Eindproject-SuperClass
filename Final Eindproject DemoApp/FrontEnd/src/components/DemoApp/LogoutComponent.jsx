@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 
 class LogoutComponent extends Component{
     render(){
+        console.log("ik ben uit gelogd")
         return(
             <div>
                 <h1>You are logged out</h1> 

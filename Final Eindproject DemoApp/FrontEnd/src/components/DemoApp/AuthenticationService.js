@@ -4,30 +4,36 @@
 import axios from "axios"
 import {API_URL} from "../../Constants"
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "authenticatedUser"
+export const PageRefresh = "PageRefresh"
 
 //When user is succesfully logged in, we create a key to save in session storage
 class AuthenticationService {   
 
 //when a user logged in, call the jwt authenticate service
 //no need for a header, send a post request with username and password
-    executeJwtAuthenticationService(username, password){        
+    executeJwtAuthenticationService(username, password){
         return axios.post(`${API_URL}/authenticate`, {
             username,
             password
         })
-    }   
-      
+    }
+
     createJwtToken(token){
         return "Bearer " + token
-    } 
+    }
 
     registerSuccessfulLoginForJwt(username, token){
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
+        sessionStorage.setItem(PageRefresh, "refresh");
 //every http request from now on needs to use the token, wich came in response
 //token is created in backend
         this.setupAxiosInterceptors(this.createJwtToken(token))
+        // this.refreshPage();
     }
 
+    refreshPage() {
+        window.location.reload();
+    }
 //token is deleted when user loggs out
     logout(){
         sessionStorage.clear();
@@ -40,7 +46,7 @@ class AuthenticationService {
         return true
     }
 
-    // isUserAdmin(id){        
+    // isUserAdmin(id){
     //     let user = UserDataService.retrieveUser(id)
     //     if(user.role==="ROLE_ADMIN") return true
     //     return false

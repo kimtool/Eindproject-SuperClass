@@ -32,16 +32,18 @@ class HeaderComponent extends Component{
 
 
     render(){
+        const {item} = this.state;
+        const isAdmin = item.role !== "ROLE_ADMIN";
         const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
-        const isAdmin = this.state.role != 'ROLE_ADMIN';
         return (
             <header className="desktop-header">
                 <div className="icon-block">{isUserLoggedIn && <Link className="menu-icon" to="/welcome">HOME</Link>}</div>
                 <div className="icon-block left">
+
                 {isAdmin ? (
                     <div className="icon-block left">{isUserLoggedIn && <Link className="menu-icon" to="/profile">MY PROFILE</Link>}</div>
                 ) : (
-                    <div className="icon-block left">{isUserLoggedIn && <Link className="menu-icon" to="/profile">MEMBERS</Link>}</div>
+                    <div className="icon-block left">{isUserLoggedIn && <Link className="menu-icon" to="/members">MEMBERS</Link>}</div>
                 )}
                 </div>
                 <Link to="/welcome"><img className="hexagonlogo" alt="" src={hexagonlogo}/></Link>
