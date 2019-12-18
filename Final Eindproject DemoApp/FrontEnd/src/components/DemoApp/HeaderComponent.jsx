@@ -5,13 +5,12 @@ import hexagonlogo from '../images/hexagonlogo_A1_Rectangle_13_pattern.png'
 import '../../Header.css'
 import {USER_NAME_SESSION_ATTRIBUTE_NAME} from "./AuthenticationService";
 import {API_URL} from "../../Constants";
+import {USERROLE} from "./WelcomeComponent";
+const memberRole = sessionStorage.getItem(USERROLE)
 
 class HeaderComponent extends Component{
     emptyItem = {
         id: '',
-        name: '',
-        email: '',
-        password: '',
         role: ''
     };
 

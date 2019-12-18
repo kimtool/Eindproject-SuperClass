@@ -37,9 +37,10 @@ class DemoApp extends Component {
                             <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>                            
                             <AuthenticatedRoute path="/demos" component={DemoListComponentUser}/>
                             <AuthenticatedRoute path="/admin/demos" component={DemoListComponentAdmin}/>
-                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
-                            <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>
-                            <AuthenticatedRoute path="/members" component={MembersComponenten}/>
+                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
+                            <AuthenticatedRoute path="/demos" component={DemoListComponentUser}/>
+                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
+                            <AuthenticatedRouteAdmin path="/members" component={MembersComponenten}/>
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>

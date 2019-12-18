@@ -30,7 +30,7 @@ class AuthenticationService {
         this.setupAxiosInterceptors(this.createJwtToken(token))
         // this.refreshPage();
     }
-
+//page refresh
     refreshPage() {
         window.location.reload();
     }
