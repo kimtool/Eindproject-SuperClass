@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
 import {Link} from 'react-router-dom'
-
+import HeaderComponent from "./HeaderComponent";
 class ListDemosComponent extends Component {
     constructor(props){             //gets called when component is being initialized
         super(props)
@@ -10,6 +10,7 @@ class ListDemosComponent extends Component {
             demos:[], 
             message : null
         }
+        // console.log(HeaderComponent)
     }
 
     // Base64 string data
