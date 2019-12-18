@@ -3,7 +3,9 @@
 //Promise based HTTP client for the browser and node.js
 import axios from "axios"
 import {API_URL} from "../../Constants"
+import {USERROLE} from "./WelcomeComponent"
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "authenticatedUser"
+
 
 //When user is succesfully logged in, we create a key to save in session storage
 class AuthenticationService {   
@@ -40,11 +42,11 @@ class AuthenticationService {
         return true
     }
 
-    // isUserAdmin(id){
-    //     let user = UserDataService.retrieveUser(id)
-    //     if(user.role==="ROLE_ADMIN") return true
-    //     return false
-    // }
+    isUserAdmin(){
+        let user = sessionStorage.getItem(USERROLE)
+        if(user==="ROLE_ADMIN") return true
+        return false
+    }
 
     getLoggedInUsername(){
         let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)

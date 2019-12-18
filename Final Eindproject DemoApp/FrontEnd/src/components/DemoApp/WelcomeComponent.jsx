@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import AuthenticationService, {PageRefresh, USER_NAME_SESSION_ATTRIBUTE_NAME} from "./AuthenticationService";
 import Welcome_Image from '../images/afbeeldingen/welcomeBanner7.jpg'
+const username = AuthenticationService.getLoggedInUsername();
 export const USERROLE = "user"
 const username = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
 
