@@ -13,9 +13,9 @@ import ProfileComponent from './ProfileComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
+import MembersComponenten from "./MembersComponenten";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
-
 //terminal: npm add react-router-dom
 
 class DemoApp extends Component {
@@ -39,6 +39,7 @@ class DemoApp extends Component {
                             <AuthenticatedRoute path="/admin/demos" component={DemoListComponentAdmin}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
                             <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>
+                            <AuthenticatedRoute path="/members" component={MembersComponenten}/>
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>
