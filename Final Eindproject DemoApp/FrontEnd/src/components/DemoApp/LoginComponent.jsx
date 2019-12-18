@@ -32,6 +32,7 @@ class LoginComponent extends Component {
     refreshPage() {
         window.location.reload(false);
     }
+    
     loginClicked = () => {
 //instead of password we need a token, token comes from response.data
         AuthenticationService.executeJwtAuthenticationService(this.state.username,this.state.password)

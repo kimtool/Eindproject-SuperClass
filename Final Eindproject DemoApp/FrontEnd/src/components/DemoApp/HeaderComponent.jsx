@@ -29,7 +29,6 @@ class HeaderComponent extends Component{
         }
     }
 
-
     render(){
         const {item} = this.state;
         const isAdmin = item.role !== "ROLE_ADMIN";
