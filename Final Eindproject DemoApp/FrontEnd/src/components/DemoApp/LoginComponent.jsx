@@ -15,6 +15,9 @@ class LoginComponent extends Component {
             wasLoginSuccesful: false,
             showErrorMessage: false
         }
+        // if (AuthenticationService.isUserLoggedIn) {
+        //     this.props.history.push("/Welcome");
+        // }
     }
 
 //handles change for all input fields 
@@ -26,18 +29,21 @@ class LoginComponent extends Component {
             }
         )
     }
-    
+    refreshPage() {
+        window.location.reload(false);
+    }
     loginClicked = () => {
 //instead of password we need a token, token comes from response.data
         AuthenticationService.executeJwtAuthenticationService(this.state.username,this.state.password)
         .then((response) => {                
             AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token);
             this.props.history.push("/welcome")
+            this.refreshPage()
             }).catch(() => {
                 this.setState({showErrorMessage:true})
                 this.setState({wasLoginSuccesful:false})
             })
-        }  
+        }
 
     render(){
         return (
@@ -52,6 +58,7 @@ class LoginComponent extends Component {
                         <input type="password" className="form-control" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password" required/>      
                     </div>
                     <div className="right_align">
+                        {/* <a href="ForgotPasswordPage.html" target="blank" style={{color: "white"}}>Forgot password?</a><br/> */}
                         <Link className="login_link" to="/register">Register</Link>
                     </div>              
                 </div> 

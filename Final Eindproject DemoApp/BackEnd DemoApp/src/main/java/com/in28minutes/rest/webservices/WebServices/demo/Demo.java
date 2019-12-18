@@ -1,6 +1,5 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,14 +29,12 @@ public class Demo {
     private String description;
     @Lob
     private byte[] data;
-    private Date date;
     
     protected Demo(){        
     }
 
-    public Demo(Date date, String fileName, String contentType, String username, String description, byte[] data) {
+    public Demo(String fileName, String contentType, String username, String description, byte[] data) {
         super();
-        this.date = date;
         this.fileName = fileName;
         this.trackName = trackName;
         this.contentType = contentType;
@@ -59,16 +56,6 @@ public class Demo {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-    
-    
 
     public String getFileName() {
         return fileName;
