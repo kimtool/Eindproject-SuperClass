@@ -35,7 +35,7 @@
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    list-style-type: none;
+    text-decoration: none;
 }
 .menu-icon:hover{
     color: rgba(255,255,255,1);

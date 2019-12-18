@@ -6,8 +6,8 @@ class DemoDataService {
         return axios.get(`${API_URL}/demos`)
     }
 
-    retrieveAllDemosUser(name){
-        return axios.get(`${API_URL}/users/${name}/demos`)
+    retrieveAllDemosUser(username){
+        return axios.get(`${API_URL}/demos/${username}`)
     }
 
     retrieveDemo(name, id){

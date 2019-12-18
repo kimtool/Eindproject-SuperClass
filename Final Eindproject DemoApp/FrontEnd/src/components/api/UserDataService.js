@@ -14,12 +14,16 @@ class UserDataService {
         return axios.get(`${API_URL}/members/${username}`)
     }
 
+    retrieveUserRole(role){
+        return axios.get(`${API_URL}/members/${role}`)
+    }
+
     deleteUser(id){
         return axios.delete(`${API_URL}/members/${id}`)
     }
 
-    updateUser(id, user){
-        return axios.put(`${API_URL}/members/${id}`, user)
+    updateUser(id){
+        return axios.put(`${API_URL}/members/${id}`)
     }
 
     createUser(user){

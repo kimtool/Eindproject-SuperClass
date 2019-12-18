@@ -3,8 +3,6 @@ import '../../App.css'
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import LoginComponent from './LoginComponent.jsx'
 import RegisterComponent from './RegisterComponent.jsx'
-import DemoListComponentUser from './DemoListComponentUser.jsx'
-import DemoListComponentAdmin from './DemoListComponentAdmin.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
@@ -12,10 +10,14 @@ import WelcomeComponent from './WelcomeComponent.jsx'
 import ProfileComponent from './ProfileComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
+import UpdateDemoComponent from './UpdateDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
+import MembersComponenten from "./MembersComponenten";
+import AddUserComponent from "./AddUserComponent";
+import DemoListComponentAdmin from "./DemoListComponentAdmin";
+import DemoListComponentUser from "./DemoListComponentUser";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
-
 //terminal: npm add react-router-dom
 
 class DemoApp extends Component {
@@ -35,10 +37,12 @@ class DemoApp extends Component {
                             <AuthenticatedRoute path="/welcome" component={WelcomeComponent}/>
                             <AuthenticatedRoute path="/profile" component={ProfileComponent}/>
                             <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>
-                            <AuthenticatedRoute path="/demos" component={DemoListComponentUser}/>
-                            <AuthenticatedRouteAdmin path="/admin/demos" component={DemoListComponentAdmin}/>
-                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
-                            <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>
+                            <AuthenticatedRoute path="/demos/:id" component={UpdateDemoComponent}/>
+                            <AuthenticatedRoute path="/demosuser" component={DemoListComponentUser}/>
+                            <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
+                            <AuthenticatedRouteAdmin path="/demosadmin" component={DemoListComponentAdmin}/>
+                            <AuthenticatedRouteAdmin path="/members" component={MembersComponenten}/>
+                            <AuthenticatedRouteAdmin path="/adduser" component={AddUserComponent}/>
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>

@@ -25,6 +25,12 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+
+    @PutMapping("/members/{id}")
+    ResponseEntity<User> updateUser(@RequestBody User user) {
+        User result = userRepository.save(user);
+        return ResponseEntity.ok().body(result);
+    }
     
     @RequestMapping ("/members/{username}")
     public User getUserByName(@PathVariable String username) {
@@ -40,11 +46,6 @@ public class UserController {
 //    public void updateUser(@RequestBody User user, @PathVariable Long id) {
 //        userService.updateUser(id, user);
 //    }
-    @PutMapping("/members/{id}")
-    ResponseEntity<User> updateUser(@RequestBody User user) {
-        User result = userRepository.save(user);
-        return ResponseEntity.ok().body(result);
-    }
     
     
     @DeleteMapping ("/members/{id}")

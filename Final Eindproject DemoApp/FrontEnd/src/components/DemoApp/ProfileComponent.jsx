@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 class ProfileComponent extends Component {
     emptyItem = {
         id: '',
-        name: '',
+        username: '',
         email: '',
         password: '',
         role: ''
@@ -78,24 +78,27 @@ class ProfileComponent extends Component {
                             <Input type="text" name="id" id="id" value={item.id}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="email">E-mail</Label>
-                            <Input type="text" name="email" id="email" value={item.email || ''}
-                                   onChange={this.handleChange} autoComplete="address-level1"/>
+                            <Label for="username">Username</Label>
+                            <Input type="text" name="username" id="username" value={item.username}/>
                         </FormGroup>
-                        {isAdmin &&
                         <FormGroup>
-                            <div className="icon-block">
-                                <div className="mb-3">
-                            <select value={item.role} onChange={this.handleChange}>
-                                <option value="ROLE_USER">User</option>
-                                <option value="ROLE_ADMIN">Admin</option>
-                                <option value="ROLE_BACK">Backoffice</option>
-                            </select>
-                        </div>
-                            </div>
-                        </FormGroup>}
+                            <Label for="email">E-mail</Label>
+                            <Input type="text" name="email" id="email" value={item.email}/>
+                        </FormGroup>
+                        {/*{isAdmin &&*/}
+                        {/*<FormGroup>*/}
+                        {/*    <div className="icon-block">*/}
+                        {/*        <div className="mb-3">*/}
+                        {/*            <select value={item.role} onChange={this.handleChange}>*/}
+                        {/*                <option value="ROLE_USER">User</option>*/}
+                        {/*                <option value="ROLE_ADMIN">Admin</option>*/}
+                        {/*                <option value="ROLE_BACK">Backoffice</option>*/}
+                        {/*            </select>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</FormGroup>}*/}
                         <FormGroup>
-                            <Button color="primary" type="submit">Save</Button>
+                            {/*<Button color="primary" type="submit">Save</Button>*/}
                         </FormGroup>
                     </Form>
                 </div>

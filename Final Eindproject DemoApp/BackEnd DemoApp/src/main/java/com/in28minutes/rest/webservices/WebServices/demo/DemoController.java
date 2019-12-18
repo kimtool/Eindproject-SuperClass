@@ -3,7 +3,6 @@ package com.in28minutes.rest.webservices.WebServices.demo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,22 +14,23 @@ import org.springframework.web.multipart.MultipartFile;
  */
 
 @RestController
+@RequestMapping ("/demos")
 @CrossOrigin(origins="http://localhost:4200")
 public class DemoController {   
     
     private final DemoJpaRespository demoRepository;
     
-    public DemoController(DemoJpaRespository fileEntityRepository){this.demoRepository = fileEntityRepository;}
+    public DemoController(DemoJpaRespository fileEntityRepository){this.demoRepository = fileEntityRepository; }
     
-    @RequestMapping ("/demos")
+    @GetMapping
     public List<Demo> getAllDemos() {
         List<Demo> demos = new ArrayList<>();
         demoRepository.findAll().forEach(demos::add);
         return demos;
     }
-    
-    @GetMapping("/users/{username}/demos")
-    public List<Demo> getAllUserDemos(@PathVariable String username){
+
+    @GetMapping("/{username}")
+    public List<Demo> getAllDemos(@PathVariable String username){
         return demoRepository.findByUsername(username);
         //return demoService.findAll();
     }    
@@ -59,12 +59,12 @@ public class DemoController {
     }
 
     //Create a new Demo
-    @PostMapping("/users/{username}/demos")
+    @PostMapping("/{username}")
     public ResponseEntity<String> uploadDemo (@PathVariable String username, Demo demo, @NotNull @RequestParam("trackname") String trackname,@RequestParam("file") MultipartFile multipartFile){
         String status="";
         if (!multipartFile.isEmpty()) {
             try {
-                Demo file = new Demo(demo.getDate(), multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
+                Demo file = new Demo(multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
                         demo.getUsername(), demo.getDescription(), multipartFile.getBytes());
                 file.setTrackName(trackname);
 
