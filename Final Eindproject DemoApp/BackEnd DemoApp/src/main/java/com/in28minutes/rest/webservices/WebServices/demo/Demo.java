@@ -1,14 +1,11 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
-import com.in28minutes.rest.webservices.WebServices.jwt.user.User;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 /**
@@ -27,26 +24,24 @@ public class Demo {
     @Size(max = 30)
     private String trackName;
     private String contentType;
-//    @Size(max = 30)
-//    private String username;
+    @Size(max = 30)
+    private String username;
     @Size(max = 255)
     private String description;
     @Lob
     private byte[] data;
-    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "username", nullable = false)
-    private User user;
+    private Date date;
     
     protected Demo(){        
     }
 
-    public Demo(String fileName, String contentType, User user, String description, byte[] data) {
+    public Demo(Date date, String fileName, String contentType, String username, String description, byte[] data) {
         super();
+        this.date = date;
         this.fileName = fileName;
         this.trackName = trackName;
         this.contentType = contentType;
-        this.user = user;
+        this.username = username;
         this.description = description;
         this.data = data;
     } 
@@ -64,6 +59,16 @@ public class Demo {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    
 
     public String getFileName() {
         return fileName;
@@ -89,21 +94,13 @@ public class Demo {
         this.contentType = contentType;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public String getUsername() {
-        return user.getUsername();
+        return username;
     }
-    
-//    public void setUsername(String username) {        
-//        this.username = user.getUsername();
-//    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getDescription() {
         return description;

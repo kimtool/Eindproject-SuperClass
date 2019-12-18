@@ -151,6 +151,9 @@ label{
     width: 90%;
     max-width: 1012px;
 }
+tr{
+    border-color: red !important;
+}
 .demo-web{
     display: block;
 }
@@ -213,11 +216,13 @@ audio{
     }
     .audio_desc{
         display: flex;
+        justify-content: space-between;
+        width: 100% !important;
         margin: 0px;
     }
     .demo_li{
         list-style-type: none;
-        margin-left: 50px;
+        margin: 0px 5px;        
     }
     audio{
         display: inline-block;
