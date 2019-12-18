@@ -1,5 +1,6 @@
 package com.in28minutes.rest.webservices.WebServices.demo;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,17 @@ public class DemoController {
     
     private final DemoJpaRespository demoRepository;
     
-    public DemoController(DemoJpaRespository fileEntityRepository){this.demoRepository = fileEntityRepository; }
+    public DemoController(DemoJpaRespository fileEntityRepository){this.demoRepository = fileEntityRepository;}
+    
+    @RequestMapping ("/demos")
+    public List<Demo> getAllDemos() {
+        List<Demo> demos = new ArrayList<>();
+        demoRepository.findAll().forEach(demos::add);
+        return demos;
+    }
     
     @GetMapping("/users/{username}/demos")
-    public List<Demo> getAllDemos(@PathVariable String username){
+    public List<Demo> getAllUserDemos(@PathVariable String username){
         return demoRepository.findByUsername(username);
         //return demoService.findAll();
     }    
@@ -56,7 +64,7 @@ public class DemoController {
         String status="";
         if (!multipartFile.isEmpty()) {
             try {
-                Demo file = new Demo(multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
+                Demo file = new Demo(demo.getDate(), multipartFile.getOriginalFilename(), multipartFile.getContentType(), 
                         demo.getUsername(), demo.getDescription(), multipartFile.getBytes());
                 file.setTrackName(trackname);
 

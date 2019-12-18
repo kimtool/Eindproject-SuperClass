@@ -64,10 +64,10 @@ class ProfileComponent extends Component {
     render()
     {
         const {item} = this.state;
-        const isAdmin = item.role === 'ROLE_ADMIN';
+        const isAdmin = item.role === 'ROLE_USER';
         console.log(isAdmin)
         return (
-            <div className="App">
+            <div className="App" style={{marginLeft:"50px"}}>
                 <div className="left">
                     <h1 className="title">Welcome {item.username}!</h1>
                 </div>

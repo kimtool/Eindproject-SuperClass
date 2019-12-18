@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import DemoDataService from '../api/DemoDataService.js'
 import AuthenticationService from './AuthenticationService.js'
-import {Link} from 'react-router-dom'
+import moment from 'moment';
 
-class ListDemosComponent extends Component {
+class DemoListComponentUser extends Component {
     constructor(props){             //gets called when component is being initialized
         super(props)
         this.state = {
@@ -12,26 +12,24 @@ class ListDemosComponent extends Component {
         }
     }
 
-    // Base64 string data
-
     componentDidMount() { 
         this.refreshDemos();
     }    
 
     refreshDemos = () => {
         let username = AuthenticationService.getLoggedInUsername()
-        DemoDataService.retrieveAllDemos(username)
+        DemoDataService.retrieveAllDemosUser(username)
         .then(
             response => {
             this.setState({demos : response.data})
         })
     }
 
-    deleteDemoClicked = (id) => {
+    deleteDemoClicked = (id, trackName) => {
         let name = AuthenticationService.getLoggedInUsername()
         DemoDataService.deleteDemo(name, id)
         .then(response =>{
-                this.setState({message:`Delete of demo ${id} Succesful`});
+                this.setState({message:`Delete of demo ${trackName} Succesful`});
                 this.refreshDemos();
             }
         )
@@ -41,32 +39,33 @@ class ListDemosComponent extends Component {
         this.props.history.push(`/demos/${id}`)
     }
 
+    addDemoClicked = () => {
+        this.props.history.push("/demos/add")
+    } 
+
     render(){
         return (
         <div>                       
             {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
             <h1 className="title">DEMO'S</h1>
-            <Link to="/demos/add" style={{textDecoration: "none"}}><button className="button">Add</button></Link>  
+            <button className="button" onClick={() => this.addDemoClicked()}>Add</button> 
             <div className="container demo-web">            
             <table className="table">
                 <thead>
-                    <tr>
-                        {/* <th>id</th> */}
+                    <tr>                                              
                         <th>File</th>
+                        <th>Date</th>
                         <th>User</th>
                         <th>Title</th>
-                        {/* <th>File</th> */}
                         <th>Description</th>
-                        {/* <th>Upload Date</th>
-                        <th>Status</th>
-                        <th>Update</th> */}
-                        <th>Delete</th>
+                        <th>Update</th>
+                        {/* <th>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>
                     {
 //map() method is used to iterate over an array and calling function on every element of array.
-                        this.state.demos.map (
+                        this.state.demos.reverse().map (
                             demo =>                        
                             <tr key={demo.id}>
                                 {/* <td>{demo.id}</td> */}
@@ -76,14 +75,12 @@ class ListDemosComponent extends Component {
                                         Your browser does not support the audio element.
                                     </audio>
                                 </td>
+                                <td>{moment(demo.date).format('DD-MM-YYYY')}</td>
                                 <td>{demo.username}</td>
                                 <td>{demo.trackName}</td>
-                                {/* <td>{demo.fileName}</td> */}
-                                <td>{demo.description}</td>
-                                {/* <td>{moment(demo.targetDate).format("YYYY-MM-DD")}</td>
-                                <td>{demo.isDone.toString()}</td>                                 
-                                <td><button className="button_small" onClick={() => this.updateDemoClicked(demo.id)}>Update</button></td>*/}
-                                <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>
+                                <td>{demo.description}</td>                               */}
+                                <td><button className="button button_small" onClick={() => this.updateDemoClicked(demo.id)}>View</button></td>
+                                {/* <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id, demo.trackName)}>Delete</button></td> */}
                             </tr>
                         )
                     }
@@ -109,8 +106,9 @@ class ListDemosComponent extends Component {
                                         Your browser does not support the audio element.
                                     </audio>
                                     <ul className="audio_desc">
-                                        <li className="demo_li" style={{marginLeft:"10px"}}>{demo.username}</li>
-                                        <li className="demo_li" style={{marginLeft:"60px"}}>{demo.trackName}</li>
+                                        <li className="demo_li">{demo.username}</li>
+                                        <li className="demo_li">{demo.trackName}</li>
+                                        <li className="demo_li">{moment(demo.date).format('DD-MM-YYYY')}</li>
                                     </ul>
                                 </td>
                                 <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>                                
@@ -125,4 +123,4 @@ class ListDemosComponent extends Component {
     }
 }
 
-export default ListDemosComponent
+export default DemoListComponentUser

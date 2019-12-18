@@ -3,7 +3,8 @@ import '../../App.css'
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import LoginComponent from './LoginComponent.jsx'
 import RegisterComponent from './RegisterComponent.jsx'
-import DemoListComponent from './DemoListComponent.jsx'
+import DemoListComponentUser from './DemoListComponentUser.jsx'
+import DemoListComponentAdmin from './DemoListComponentAdmin.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
 import LogoutComponent from './LogoutComponent.jsx'
@@ -11,7 +12,6 @@ import WelcomeComponent from './WelcomeComponent.jsx'
 import ProfileComponent from './ProfileComponent.jsx'
 import ErrorComponent from './ErrorComponent.jsx'
 import AddDemoComponent from './AddDemoComponent.jsx'
-import UpdateDemoComponent from './UpdateDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
@@ -34,11 +34,11 @@ class DemoApp extends Component {
                             <Route path="/register" component={RegisterComponent}/>
                             <AuthenticatedRoute path="/welcome" component={WelcomeComponent}/>
                             <AuthenticatedRoute path="/profile" component={ProfileComponent}/>
-                            <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>
-                            <AuthenticatedRoute path="/demos/:id" component={UpdateDemoComponent}/>
-                            <AuthenticatedRoute path="/demos" component={DemoListComponent}/>
+                            <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>                            
+                            <AuthenticatedRoute path="/demos" component={DemoListComponentUser}/>
+                            <AuthenticatedRoute path="/admin/demos" component={DemoListComponentAdmin}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/> 
-                            <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>                       
+                            <AuthenticatedRouteAdmin path="/admin" component={WelcomeComponent}/>
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>
