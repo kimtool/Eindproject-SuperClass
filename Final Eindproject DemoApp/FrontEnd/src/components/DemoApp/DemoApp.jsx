@@ -14,6 +14,9 @@ import AddDemoComponent from './AddDemoComponent.jsx'
 import UpdateDemoComponent from './UpdateDemoComponent.jsx'
 import HamburgerMenuComponent from './HamburgerMenuComponent.jsx'
 import MembersComponenten from "./MembersComponenten";
+import AddUserComponent from "./AddUserComponent";
+import DemoListComponentAdmin from "./DemoListComponentAdmin";
+import DemoListComponentUser from "./DemoListComponentUser";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import AuthenticatedRouteAdmin from './AuthenticatedRouteAdmin'
 //terminal: npm add react-router-dom
@@ -36,9 +39,11 @@ class DemoApp extends Component {
                             <AuthenticatedRoute path="/profile" component={ProfileComponent}/>
                             <AuthenticatedRoute path="/demos/add" component={AddDemoComponent}/>
                             <AuthenticatedRoute path="/demos/:id" component={UpdateDemoComponent}/>
-                            <AuthenticatedRoute path="/demos" component={DemoListComponent}/>
+                            <AuthenticatedRoute path="/demos" component={DemoListComponentUser}/>
                             <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
+                            <AuthenticatedRouteAdmin path="/demos/admin" component={DemoListComponentAdmin}/>
                             <AuthenticatedRouteAdmin path="/members" component={MembersComponenten}/>
+                            <AuthenticatedRouteAdmin path="/adduser" component={AddUserComponent}/>
                             <Route path="" component={ErrorComponent}/>
                         </Switch>
                     </main>

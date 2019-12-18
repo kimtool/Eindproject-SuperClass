@@ -50,7 +50,7 @@ class MembersComponenten extends Component {
                 <td>{user.role}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" tag={Link} to={"/members/" + user.id}>Edit</Button>
+                        {/*<Button size="sm" tag={Link} to={"/members/" + user.id}>Edit</Button>*/}
                         <button size="sm" onClick={() => this.deleteUserClicked(user.id)}>Delete</button>
                     </ButtonGroup>
                 </td>
@@ -61,7 +61,7 @@ class MembersComponenten extends Component {
             <div>
                 <Container fluid>
                     <div className="float-right">
-                        <Button size="sm" tag={Link} to="/register">Add User</Button>
+                        <Button size="sm" tag={Link} to="/adduser">Add User</Button>
                     </div>
                     <h3>List of members</h3>
                     <Table className="mt-4">

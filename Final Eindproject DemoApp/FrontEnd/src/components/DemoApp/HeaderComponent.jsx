@@ -29,6 +29,7 @@ class HeaderComponent extends Component{
         }
     }
 
+
     render(){
         const {item} = this.state;
         const isAdmin = item.role !== "ROLE_ADMIN";
@@ -42,7 +43,12 @@ class HeaderComponent extends Component{
                     <div className="icon-block left">{isUserLoggedIn && <Link className="menu-icon" to="/members">MEMBERS</Link>}</div>
                 )}
                 <Link to="/welcome"><img className="hexagonlogo" alt="" src={hexagonlogo}/></Link>
-                <div className="icon-block right">{isUserLoggedIn && <Link className="menu-icon"  to="/demos">DEMO'S</Link>}</div>
+                {isAdmin ? (
+                    <div className="icon-block right">{isUserLoggedIn && <Link className="menu-icon"  to="/demos">DEMO'S</Link>}</div>
+                ) : (
+                    <div className="icon-block right">{isUserLoggedIn && <Link className="menu-icon"  to="/demos/admin">DEMO'S</Link>}</div>
+                )}
+                {/*<div className="icon-block right">{isUserLoggedIn && <Link className="menu-icon"  to="/demos">DEMO'S</Link>}</div>*/}
                 <div className="icon-block">{isUserLoggedIn && <Link className="menu-icon" to="/logout" onClick={AuthenticationService.logout}>LOG OUT</Link>}</div>
             </header>
         )
