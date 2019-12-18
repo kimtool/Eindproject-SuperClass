@@ -1,14 +1,9 @@
 import React, {Component} from 'react'
 import AuthenticationService, {USER_NAME_SESSION_ATTRIBUTE_NAME} from "./AuthenticationService";
-import UserDataService from "../api/UserDataService"
 import axios from 'axios'
 import {API_URL} from "../../Constants"
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import {Link} from "react-router-dom";
-
-// const username = AuthenticationService.getLoggedInUsername();
-
-
 
 class ProfileComponent extends Component {
     emptyItem = {
@@ -64,10 +59,10 @@ class ProfileComponent extends Component {
     render()
     {
         const {item} = this.state;
-        const isAdmin = item.role === 'ROLE_USER';
+        const isAdmin = item.role === 'ROLE_ADMIN';
         console.log(isAdmin)
         return (
-            <div className="App" style={{marginLeft:"50px"}}>
+            <div className="App">
                 <div className="left">
                     <h1 className="title">Welcome {item.username}!</h1>
                 </div>
