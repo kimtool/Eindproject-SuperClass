@@ -2,16 +2,18 @@ import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import '../../App.css'
 import axios from 'axios';
+import moment from 'moment';
 import {API_URL} from "../../Constants"
 import AuthenticationService from "./AuthenticationService";
 import bsCustomFileInput from 'bs-custom-file-input';
-const username = AuthenticationService.getLoggedInUsername();
+
 
 function AddDemoComponent() {
 
     let history = useHistory();
     var maxChars = 255;
-    let fileInput = "Choose Demo"
+    let fileInput = "Choose Demo";
+    var currentDate = moment()
 
 function submitForm(contentType, data, setResponse, username) {    
     axios({
@@ -29,6 +31,7 @@ function submitForm(contentType, data, setResponse, username) {
     })
 }    
 
+    const [username, setUsername] = useState("")
     const [trackname, setTrackname] = useState("");
     const [file, setFile] = useState("");
     const [description, setDescription] = useState("");
@@ -45,6 +48,7 @@ function submitForm(contentType, data, setResponse, username) {
                 formData.append("trackname", trackname);
                 formData.append("file", file);
                 formData.append("username", username);
+                formData.append("date", currentDate);
                 formData.append("description", description);
                 if(trackname === ""){
                     setErrorNoTitle(true);
@@ -62,13 +66,15 @@ function submitForm(contentType, data, setResponse, username) {
 
     function inputChanged(e){
         setFile(e.target.files[0])
-        bsCustomFileInput.init();      
+        bsCustomFileInput.init()
+        setUsername(AuthenticationService.getLoggedInUsername())
+        
     }    
 
     function handleChange(event) {
         var input = event.target.value;        
         setCharsLeft(maxChars-input.length);
-        setDescription(event.target.value);        
+        setDescription(event.target.value);      
     }
 
     return (
