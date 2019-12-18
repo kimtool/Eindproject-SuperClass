@@ -4,7 +4,6 @@
 import axios from "axios"
 import {API_URL} from "../../Constants"
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = "authenticatedUser"
-export const PageRefresh = "PageRefresh"
 
 //When user is succesfully logged in, we create a key to save in session storage
 class AuthenticationService {   
@@ -24,15 +23,10 @@ class AuthenticationService {
 
     registerSuccessfulLoginForJwt(username, token){
         sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username);
-        sessionStorage.setItem(PageRefresh, "refresh");
 //every http request from now on needs to use the token, wich came in response
 //token is created in backend
         this.setupAxiosInterceptors(this.createJwtToken(token))
         // this.refreshPage();
-    }
-//page refresh
-    refreshPage() {
-        window.location.reload();
     }
 //token is deleted when user loggs out
     logout(){
