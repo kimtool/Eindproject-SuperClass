@@ -53,7 +53,7 @@ class DemoListComponentAdmin extends Component {
                         <th>User</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,8 +95,8 @@ class DemoListComponentAdmin extends Component {
                         this.state.demos.map(
                             demo =>                        
                             <tr key={demo.id}>
-                                <td>
-                                    <td>{demo.id}</td>
+                                <td>{demo.id}</td>
+                                <td>                                    
                                     <audio className="audio" controls>  
                                         <source src={`data:audio/mp3;base64,${demo.data}`} type="audio/mpeg" controls="controls"/>
                                         Your browser does not support the audio element.

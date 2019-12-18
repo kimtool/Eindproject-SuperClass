@@ -17,6 +17,7 @@ class DemoListComponentUser extends Component {
     }    
 
     refreshDemos = () => {
+        console.log(AuthenticationService.isUserAdmin())
         let username = AuthenticationService.getLoggedInUsername()
         DemoDataService.retrieveAllDemosUser(username)
         .then(
@@ -58,7 +59,7 @@ class DemoListComponentUser extends Component {
                         <th>User</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Update</th>
+                        {/* <th>Update</th> */}
                         {/* <th>Delete</th> */}
                     </tr>
                 </thead>
@@ -78,8 +79,8 @@ class DemoListComponentUser extends Component {
                                 <td>{moment(demo.date).format('DD-MM-YYYY')}</td>
                                 <td>{demo.username}</td>
                                 <td>{demo.trackName}</td>
-                                <td>{demo.description}</td>                               */}
-                                <td><button className="button button_small" onClick={() => this.updateDemoClicked(demo.id)}>View</button></td>
+                                <td>{demo.description}</td>
+                                {/* <td><button className="button button_small" onClick={() => this.updateDemoClicked(demo.id)}>View</button></td> */}
                                 {/* <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id, demo.trackName)}>Delete</button></td> */}
                             </tr>
                         )
@@ -92,7 +93,7 @@ class DemoListComponentUser extends Component {
                 <thead>
                     <tr>
                         <th>File</th>
-                        <th>Delete</th>
+                        {/* <th>Delete</th> */}
                     </tr>
                 </thead>
                 <tbody>                    
@@ -111,7 +112,7 @@ class DemoListComponentUser extends Component {
                                         <li className="demo_li">{moment(demo.date).format('DD-MM-YYYY')}</li>
                                     </ul>
                                 </td>
-                                <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>                                
+                                {/* <td><button className="button button_small" onClick={() => this.deleteDemoClicked(demo.id)}>Delete</button></td>                                 */}
                             </tr>
                         )
                     }
